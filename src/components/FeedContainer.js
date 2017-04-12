@@ -1,18 +1,32 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import FeedSection from './FeedSection';
 
+import { fetchFeed } from '../actions/feedActions';
+
+class FeedContainer extends React.Component {
+  componentDidMount() {
+    this.props.fetchFeed();
+  }
+
+  render() {
+    return (
+      <FeedSection feed={this.props.feed}/>
+    );
+  }
+}
+
 const mapStateToProps = (state, ownProps) => {
   return {
-    feeds: state.feeds,
+    feed: state.feed,
   };
 };
 
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//   fetchChannel: (userId, channelId) => dispatch(fetchChannel(userId, channelId)),
-//   setChannel: (channel) => dispatch(setChannel(channel))
-// });
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchFeed: () => dispatch(fetchFeed()),
+});
 
 export default connect(
   mapStateToProps,
-  null
-)(FeedSection);
+  mapDispatchToProps
+)(FeedContainer);

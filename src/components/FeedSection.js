@@ -4,13 +4,13 @@ class FeedSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      feeds: props.feeds
+      feed: props.feed
     };
   }
 
   render() {
     return(
-      <div>{ this.state.feeds.test }</div>
+      <div>{ this.state.feed.test }</div>
     );
   }
 }

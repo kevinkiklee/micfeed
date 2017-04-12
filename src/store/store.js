@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-
+import logger from 'redux-logger';
 import RootReducer from '../reducers/RootReducer';
 
 // const middlewares = [thunk];
@@ -10,8 +9,6 @@ import RootReducer from '../reducers/RootReducer';
 //   const { logger } = require(`redux-logger`);
 //   middlewares.push(logger);
 // }
-
-const logger = createLogger();
 
 const configureStore = (initialState = {}) => {
   return createStore(
