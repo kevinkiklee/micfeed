@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAllArticles } from '../reducers/selectors';
-import Feed from './Feed';
 
-import { fetchFeed } from '../actions/feedActions';
+import { getAllArticles } from '../../reducers/selectors';
+import { fetchFeed } from '../../actions/feedActions';
+
+import Feed from './Feed';
 
 class FeedContainer extends React.Component {
   componentDidMount() {

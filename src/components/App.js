@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../styles/App.css';
 
-import FeedContainer from './FeedContainer';
+import FeedContainer from './feed/FeedContainer';
 
 class App extends Component {
   render() {

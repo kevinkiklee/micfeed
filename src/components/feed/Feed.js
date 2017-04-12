@@ -1,11 +1,12 @@
 import React from 'react';
-import Article from './Article';
+
+import Article from '../article/Article';
+import FeedHeader from './FeedHeader';
 
 class Feed extends React.Component {
   constructor(props) {
     super(props);
 
-    this.buildFeedHeader = this.buildFeedHeader.bind(this);
     this.buildArticleRow = this.buildArticleRow.bind(this);
   }
 
@@ -13,17 +14,6 @@ class Feed extends React.Component {
     if (this.props !== newProps) {
       this.setState({ articles: newProps.feed });
     }
-  }
-
-  buildFeedHeader() {
-    return(
-      <tr>
-        <th>Unpublished Articles</th>
-        <th>Author</th>
-        <th>Words</th>
-        <th>Published At</th>
-      </tr>
-    );
   }
 
   buildArticleRow() {
@@ -44,12 +34,8 @@ class Feed extends React.Component {
 
     return(
       <table>
-        <thead>
-          { this.buildFeedHeader() }
-       </thead>
-
-      { articles }
-
+        <FeedHeader/>
+        { articles }
       </table>
     );
   }
