@@ -4,10 +4,6 @@ import Article from './Article';
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-    //
-    // this.state = {
-    //   feed: props.feed
-    // };
 
     this.buildFeedHeader = this.buildFeedHeader.bind(this);
     this.buildArticleRow = this.buildArticleRow.bind(this);
@@ -41,10 +37,10 @@ class Feed extends React.Component {
   }
 
   render() {
-    let content = <tbody><tr><td>Loading...</td></tr></tbody>;
+    let articles = <tbody><tr><td>Loading...</td></tr></tbody>;
 
     if (this.state)
-      content = this.buildArticleRow();
+      articles = this.buildArticleRow();
 
     return(
       <table>
@@ -52,7 +48,7 @@ class Feed extends React.Component {
           { this.buildFeedHeader() }
        </thead>
 
-         { content }
+      { articles }
 
       </table>
     );
