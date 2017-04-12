@@ -9,8 +9,8 @@ const Article = ({ article }) => {
   const summary = {
     image: article.image,
     title: article.title,
-    link: article.url,
-    tags: article.tags,
+    link:  article.url,
+    tags:  article.tags,
   };
 
   return (
