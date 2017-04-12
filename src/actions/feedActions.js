@@ -9,6 +9,6 @@ export const receiveFeed = (feed) => ({
 
 export const fetchFeed = () => dispatch => {
   return FeedUtil.fetchFeed().then(
-    (feed) => (dispatch(receiveFeed(feed)))
+    (feed) => dispatch(receiveFeed(feed))
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FeedSection from './FeedSection';
+import { getAllArticles } from '../reducers/selectors';
+import Feed from './Feed';
 
 import { fetchFeed } from '../actions/feedActions';
 
@@ -11,14 +12,14 @@ class FeedContainer extends React.Component {
 
   render() {
     return (
-      <FeedSection feed={this.props.feed}/>
+      <Feed feed={this.props.feed}/>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    feed: state.feed,
+    feed: getAllArticles(state),
   };
 };
 
