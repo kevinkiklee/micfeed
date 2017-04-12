@@ -12,7 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>MicFeed</h2>
         </div>
-        <FeedContainer />
+        <FeedContainer/>
       </div>
     );
   }

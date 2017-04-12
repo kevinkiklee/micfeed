@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Summary = (props) => {
+import PreviewImage from './PreviewImage';
+import Title from './Title';
+
+const Summary = ({ summary }) => {
   return (
     <td>
-      <p>summary</p>
+      <PreviewImage image={summary.image}
+                    alt={summary.title}/>
+      <Title title={summary.title}/>
     </td>
   );
 };
