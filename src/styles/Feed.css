@@ -28,23 +28,30 @@
   /*padding: 0px 3px;*/
 }
 
-.wordCount {
+.words {
   min-width: 80px;
 }
 
-.submitDate {
+.submitted {
   min-width: 100px;
 }
 
 .sortIcons {
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 .sortIcons i {
   font-size: 15px;
   margin-left: 3px;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
 }
 
 .sortIcons i:hover {
   color: #00FFBF;
+  transition: all 0.2s ease 0s;
+}
+
+.sortIcons .selected i {
+  color: #92ffe4;
 }
