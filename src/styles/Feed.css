@@ -52,6 +52,6 @@
   transition: all 0.2s ease 0s;
 }
 
-.sortIcons .selected i {
+.iconSelected {
   color: #92ffe4;
 }
