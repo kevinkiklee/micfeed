@@ -1,9 +1,10 @@
 import React from 'react';
+import moment from 'moment';
 
 const SubmitDate = ({ date }) => {
   return (
     <td className='SubmitDate'>
-      <p>{ date }</p>
+      <p>{ moment(date).fromNow() }</p>
     </td>
   );
 };

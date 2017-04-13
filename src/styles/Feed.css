@@ -3,6 +3,7 @@
   margin: 15px;
   background-color: white;
   border-spacing: 0px;
+  border-collapse: collapse;
 }
 
 .FeedHeader {
@@ -13,5 +14,10 @@
 }
 
 .FeedHeader th {
-  padding: 10px;
+  padding: 10px 30px;
+  border: 1px solid;
+}
+
+.submitDate {
+  min-width: 90px;
 }
