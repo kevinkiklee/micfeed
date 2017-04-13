@@ -8,9 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>MicFeed</h2>
+        <div className="AppHeader">
+          <h2><span>Mic</span>Feed</h2>
         </div>
         <FeedContainer/>
       </div>
@@ -19,3 +18,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <img src={logo} className="AppLogo" alt="logo" />

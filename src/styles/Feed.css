@@ -1,0 +1,17 @@
+.Feed {
+  width: 90%;
+  margin: 15px;
+  background-color: white;
+  border-spacing: 0px;
+}
+
+.FeedHeader {
+  background-color: #222;
+  color: white;
+}
+
+.FeedHeader th {
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

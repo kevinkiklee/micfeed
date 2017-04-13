@@ -9,11 +9,9 @@ const buildTagList = (tags) => {
 };
 
 const TagList = ({ tags }) => {
-  const tagList = buildTagList(tags);
-
   return (
     <div>
-      { tagList }
+      { buildTagList(tags) }
     </div>
   );
 };

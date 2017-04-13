@@ -2,12 +2,12 @@ import React from 'react';
 
 const FeedHeader = () => {
   return (
-    <thead>
+    <thead className='FeedHeader'>
       <tr>
-        <th>Unpublished Articles</th>
-        <th>Author</th>
-        <th>Words</th>
-        <th>Published At</th>
+        <th className='summary'>Unpublished Articles</th>
+        <th className='author'>Author</th>
+        <th className='wordCount'>Words</th>
+        <th className='submitDate'>Submitted</th>
       </tr>
     </thead>
   );

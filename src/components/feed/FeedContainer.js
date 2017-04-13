@@ -28,7 +28,7 @@ class FeedContainer extends React.Component {
     }
 
     return (
-      <div>
+      <div className='FeedContainer'>
         { content }
       </div>
     );

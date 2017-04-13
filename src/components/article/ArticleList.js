@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Article from './Article';
+import '../../styles/ArticleList.css';
 
 const buildArticleList = (articles) => {
   return articles.map((article) => (
@@ -9,11 +10,9 @@ const buildArticleList = (articles) => {
 };
 
 const ArticleList = ({ articles }) => {
-  const articleList = buildArticleList(articles);
-
   return (
-    <tbody>
-      { articleList }
+    <tbody className='ArticleList'>
+      { buildArticleList(articles) }
     </tbody>
   );
 };

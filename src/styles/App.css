@@ -1,24 +1,36 @@
 .App {
   text-align: center;
+  font-family: 'Nunito';
+  background-color: rgb(250, 250, 250);
 }
 
-.App-logo {
+.AppLogo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 40px;
 }
 
-.App-header {
+.AppHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  padding: 0px;
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.AppHeader h2 {
+  font-family: 'Open Sans';
+  font-weight: 800;
+  font-size: 24px;
+  margin: 10px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.AppHeader span {
+  color: #00FFBF;
+}
+
+.FeedContainer {
+  display: flex;
+  justify-content: center;
 }
