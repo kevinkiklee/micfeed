@@ -3,7 +3,7 @@ td {
 }
 
 .ArticleList tr:nth-child(even) {
-  background-color: #fff6fd;
+  background-color: #f6f9ff;
 }
 
 .ArticleList img {
@@ -45,9 +45,10 @@ td {
 }
 
 .TagItem {
-  font-size: 13px;
-  background-color: #dae0ff;
-  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #222222;
+  color: white;
   padding: 3px 7px;
   margin: 2px;
   /*border: 1px solid black;*/
