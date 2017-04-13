@@ -1,3 +1,13 @@
 .ArticleList td {
-  border: 1px rgb(200, 245, 219) solid;
+  /*border: 1px rgb(200, 245, 219) solid;*/
+}
+
+.ArticleList img {
+  height: 100px;
+}
+
+.PreviewImage {
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
 }

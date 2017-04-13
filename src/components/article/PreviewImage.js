@@ -2,8 +2,10 @@ import React from 'react';
 
 const PreviewImage = ({ image, alt }) => {
   return (
-    <img src={image}
-         alt={alt} />
+    <div className='PreviewImage'>
+      <img src={image}
+           alt={alt} />
+    </div>
   );
 };
 
