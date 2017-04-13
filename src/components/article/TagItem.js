@@ -2,7 +2,7 @@ import React from 'react';
 
 const TagItem = ({ tag }) => {
   return (
-    <button>{ tag.name }</button>
+    <div className='TagItem'>{ tag.name }</div>
   );
 };
 

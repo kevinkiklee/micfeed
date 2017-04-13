@@ -8,6 +8,8 @@
 .FeedHeader {
   background-color: #222;
   color: white;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .FeedHeader th {
