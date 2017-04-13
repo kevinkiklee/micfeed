@@ -23,7 +23,11 @@ td {
 }
 
 .SummaryTextContainer {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 0px;
+  width: 100%;
 }
 
 .SummaryTextContainer h2 {
@@ -41,15 +45,16 @@ td {
 
 .TagList {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
 }
 
 .TagItem {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  background-color: #222222;
+  background-color: #777;
   color: white;
-  padding: 3px 7px;
+  padding: 4px 8px;
   margin: 2px;
   /*border: 1px solid black;*/
   border-radius: 7px;
