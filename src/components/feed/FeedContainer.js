@@ -5,31 +5,59 @@ import { getAllArticles } from '../../reducers/selectors';
 import { fetchFeed } from '../../actions/feedActions';
 
 import Feed from './Feed';
+import Button from './Button';
 
 class FeedContainer extends React.Component {
   constructor(props) {
     super(props);
 
+    this.articleCount = 10;
+
     this.state = {
-      feedLoaded: false
+      articlesLoaded: false,
+      articles: []
     };
+
+    this.buildArticles = this.buildArticles.bind(this);
+    this.increaseArticleCount = this.increaseArticleCount.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchFeed()
-              .then(() => this.setState({ feedLoaded: true }));
+              .then(() => this.setState({ articlesLoaded: true }));
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props !== newProps) {
+      this.buildArticles(newProps.articles);
+    }
+  }
+
+  increaseArticleCount(e) {
+    this.articleCount += 10;
+    this.buildArticles(this.props.articles);
+  }
+
+  buildArticles(articles) {
+    this.setState({
+      articles: articles.slice(0, this.articleCount)
+    });
   }
 
   render() {
-    let content = 'Loading...';
+    let articles = 'Loading...';
+    let button = '';
 
-    if (this.state.feedLoaded) {
-      content = <Feed feed={this.props.feed}/>;
+    if (this.state.articlesLoaded) {
+      articles = <Feed articles={this.state.articles}/>;
+      button = <Button type='load'
+                       onClick={this.increaseArticleCount}/>;
     }
 
     return (
       <div className='FeedContainer'>
-        { content }
+        { articles }
+        { button }
       </div>
     );
   }
@@ -37,7 +65,7 @@ class FeedContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    feed: getAllArticles(state),
+    articles: getAllArticles(state),
   };
 };
 

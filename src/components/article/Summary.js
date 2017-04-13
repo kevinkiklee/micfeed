@@ -10,7 +10,8 @@ const Summary = ({ summary }) => {
       <PreviewImage image={summary.image}
                     alt={summary.title}/>
       <div className='SummaryTextContainer'>
-        <Title title={summary.title}/>
+        <Title title={summary.title}
+               link={summary.link}/>
         <TagList tags={summary.tags}/>
       </div>
     </td>

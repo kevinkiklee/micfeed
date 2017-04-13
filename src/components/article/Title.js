@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Title = ({ title }) => {
+const Title = ({ title, link }) => {
   return (
-    <h2 className='Title'>{ title }</h2>
+    <a href={link} target='_blank'>
+      <h2 className='Title'>{ title }</h2>
+    </a>
   );
 };
 

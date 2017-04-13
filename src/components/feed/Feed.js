@@ -9,6 +9,8 @@ class Feed extends React.Component {
   constructor(props) {
     super(props);
 
+    this.articleCount = 10;
+
     this.state = {
       articles: this.props.feed
     };
@@ -18,7 +20,7 @@ class Feed extends React.Component {
     return(
       <table className='Feed'>
         <FeedHeader/>
-        <ArticleList articles={this.state.articles}/>
+        <ArticleList articles={this.props.articles}/>
       </table>
     );
   }
