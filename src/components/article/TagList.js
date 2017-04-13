@@ -10,7 +10,7 @@ const buildTagList = (tags) => {
 
 const TagList = ({ tags }) => {
   return (
-    <div>
+    <div className='TagList'>
       { buildTagList(tags) }
     </div>
   );

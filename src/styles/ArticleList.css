@@ -1,13 +1,45 @@
-.ArticleList td {
-  /*border: 1px rgb(200, 245, 219) solid;*/
+td {
+  padding: 5px;
+}
+
+.ArticleList tr:nth-child(even) {
+  background-color: #555;
 }
 
 .ArticleList img {
   height: 100px;
 }
 
+.ArticleList tr {
+  padding: 10px;
+}
+
+.Summary {
+  display: flex;
+}
+
+.SummaryTextContainer {
+  flex-direction: column;
+}
+
+.SummaryTextContainer h2 {
+  padding: 5px;
+}
+
 .PreviewImage {
   overflow: hidden;
   height: 100px;
   width: 100px;
+  min-width: 100px;
+}
+
+.TagList {
+  display: flex;
+}
+
+.Author,
+.WordCount,
+.SubmitDate {
+  vertical-align: middle;
+  text-align: center;
 }

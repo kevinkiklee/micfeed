@@ -4,7 +4,7 @@ const Author = ({ profile }) => {
   const name = `${profile.first_name} ${profile.last_name}`;
 
   return (
-    <td>
+    <td className='Author'>
       <p>{ name }</p>
     </td>
   );

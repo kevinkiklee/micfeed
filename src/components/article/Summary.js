@@ -6,11 +6,13 @@ import TagList from './TagList';
 
 const Summary = ({ summary }) => {
   return (
-    <td>
+    <td className='Summary'>
       <PreviewImage image={summary.image}
                     alt={summary.title}/>
-      <Title title={summary.title}/>
-      <TagList tags={summary.tags}/>
+      <div className='SummaryTextContainer'>
+        <Title title={summary.title}/>
+        <TagList tags={summary.tags}/>
+      </div>
     </td>
   );
 };

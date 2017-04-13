@@ -2,7 +2,7 @@ import React from 'react';
 
 const SubmitDate = ({ date }) => {
   return (
-    <td>
+    <td className='SubmitDate'>
       <p>{ date }</p>
     </td>
   );

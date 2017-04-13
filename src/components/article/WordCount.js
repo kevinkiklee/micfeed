@@ -2,7 +2,7 @@ import React from 'react';
 
 const WordCount = ({ count }) => {
   return (
-    <td>
+    <td className='WordCount'>
       <p>{ count }</p>
     </td>
   );
