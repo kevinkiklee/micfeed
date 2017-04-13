@@ -20,6 +20,8 @@ class FeedContainer extends React.Component {
 
     this.buildArticles = this.buildArticles.bind(this);
     this.increaseArticleCount = this.increaseArticleCount.bind(this);
+
+    this.sortByColumn = this.sortByColumn.bind(this);
   }
 
   componentDidMount() {
@@ -44,12 +46,17 @@ class FeedContainer extends React.Component {
     });
   }
 
+  sortByColumn(column, order) {
+
+  }
+
   render() {
     let articles = 'Loading...';
     let button = '';
 
     if (this.state.articlesLoaded) {
-      articles = <Feed articles={this.state.articles}/>;
+      articles = <Feed articles={this.state.articles}
+                       sort={this.sortByColumn}/>;
       button = <Button type='load'
                        onClick={this.increaseArticleCount}/>;
     }
