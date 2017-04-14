@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 import { getAllArticles } from '../../reducers/selectors';
 import { fetchFeed } from '../../actions/feedActions';
-import byAuthorAsc from '../../util/sortUtil';
+// import { byAuthorAsc } from '../../util/sortUtil';
+
+import sortBy from 'lodash/sortBy';
 
 import Feed from './Feed';
 import Button from './Button';
@@ -11,7 +13,6 @@ import Button from './Button';
 class FeedContainer extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
 
     this.articleCount = 10;
 
@@ -58,15 +59,28 @@ class FeedContainer extends React.Component {
   }
 
   sortByColumn(column, order) {
+    const copiedArticles = [...this.state.articles];
+
     const sortActions = {
       author: {
-        asc: this.byAuthorAsc,
+        asc: sortBy(copiedArticles, (o) => {
+          return `${o.profile.first_name} ${o.profile.last_name}`;
+        }),
+        desc: sortBy(copiedArticles, (o) => {
+          return `${o.profile.first_name} ${o.profile.last_name}`;
+        }).reverse(),
+      },
+      words: {
+        asc: sortBy(copiedArticles, (o) => o.words),
+        desc: sortBy(copiedArticles, (o) => o.words).reverse(),
+      },
+      submitted: {
+        asc: sortBy(copiedArticles, (o) => o.publish_at),
+        desc: sortBy(copiedArticles, (o) => o.publish_at).reverse(),
       }
     };
 
-    const copiedArticles = [...this.state.articles];
-
-    const sortedArticles = copiedArticles.sort(sortActions[column][order]);
+    const sortedArticles = sortActions[column][order];
 
     this.setState({ articles: sortedArticles });
   }
@@ -99,7 +113,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchFeed: () => dispatch(fetchFeed()),
-  byAuthorAsc: (a, b) => dispatch(byAuthorAsc(a, b)),
 });
 
 export default connect(
