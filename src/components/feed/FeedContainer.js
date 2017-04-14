@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import cookie from 'react-cookie';
 import sortBy from 'lodash/sortBy';
 

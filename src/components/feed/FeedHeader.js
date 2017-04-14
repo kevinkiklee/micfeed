@@ -2,11 +2,7 @@ import React from 'react';
 
 import FeedHeaderItem from './FeedHeaderItem';
 
-const FeedHeader = ({ action, selector, sort }) => {
-  let authorSelected = '';
-  let wordsSelected = '';
-  let submittedSelected = '';
-
+const FeedHeader = ({ action, sort }) => {
   return (
     <thead className='FeedHeader'>
       <tr>
@@ -15,15 +11,12 @@ const FeedHeader = ({ action, selector, sort }) => {
         </th>
 
         <FeedHeaderItem name='author'
-                        selected={authorSelected}
                         sort={sort}/>
 
         <FeedHeaderItem name='words'
-                        selected={wordsSelected}
                         sort={sort}/>
 
         <FeedHeaderItem name='submitted'
-                        selected={submittedSelected}
                         sort={sort}/>
       </tr>
     </thead>

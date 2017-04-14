@@ -1,13 +1,20 @@
 import React from 'react';
+import cookie from 'react-cookie';
 
-const FeedHeaderItem = ({ name, selected, sort }) => {
+const FeedHeaderItem = ({ name, sort }) => {
   const displayName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
 
   let sortAsc = 'fa fa-arrow-circle-up';
-  let sortdsc = 'fa fa-arrow-circle-down';
+  let sortDsc = 'fa fa-arrow-circle-down';
 
-  if (selected !== '') {
-    selected === 'asc' ? sortAsc += ' iconSelected' : sortdsc += ' iconSelected';
+  const [cookieName, cookieOrder] = cookie.load('sortedBy').split('-');
+
+  if (name === cookieName) {
+    if (cookieOrder === 'asc') {
+      sortAsc += ' iconSelected';
+    } else {
+      sortDsc += ' iconSelected';
+    }
   }
 
   return (
@@ -21,7 +28,7 @@ const FeedHeaderItem = ({ name, selected, sort }) => {
         </button>
         <button className='sortIconButton'
                 onClick={() => sort(name, 'dsc')}>
-          <i className={sortdsc}
+          <i className={sortDsc}
             aria-hidden="true"/>
         </button>
       </span>
