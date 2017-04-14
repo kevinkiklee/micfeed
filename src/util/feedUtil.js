@@ -1,4 +1,4 @@
-export const fetchFeed = () => {
-  return fetch('../data/articles.json')
+export const fetchFeed = (url) => {
+  return fetch(url)
            .then((res) => res.json());
 };

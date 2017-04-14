@@ -7,8 +7,8 @@ export const receiveFeed = (feed) => ({
   feed
 });
 
-export const fetchFeed = () => dispatch => {
-  return FeedUtil.fetchFeed().then(
+export const fetchFeed = (url) => dispatch => {
+  return FeedUtil.fetchFeed(url).then(
     (feed) => dispatch(receiveFeed(feed))
   );
 };

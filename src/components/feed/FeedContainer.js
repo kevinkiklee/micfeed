@@ -28,7 +28,7 @@ class FeedContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchFeed()
+    this.props.fetchFeed('../data/articles.json')
               .then(() => this.setState({ articlesLoaded: true }));
   }
 
@@ -74,7 +74,7 @@ class FeedContainer extends React.Component {
         desc: sortBy(copiedArticles, (o) => o.publish_at).reverse(),
       }
     };
-    debugger
+
     const sortedArticles = sortActions[column][order];
     const sortedBy = `${column}${order}`;
 
@@ -110,7 +110,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchFeed: () => dispatch(fetchFeed()),
+  fetchFeed: (url) => dispatch(fetchFeed(url)),
 });
 
 export default connect(
