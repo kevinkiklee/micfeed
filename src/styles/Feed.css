@@ -21,15 +21,15 @@
 }
 
 .author {
-  min-width: 90px;
+  width: 100px;
 }
 
 .words {
-  min-width: 80px;
+  width: 100px;
 }
 
 .submitted {
-  min-width: 100px;
+  width: 120px;
 }
 
 .sortIcons {
