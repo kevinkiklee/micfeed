@@ -23,13 +23,21 @@ class FeedContainer extends React.Component {
     this.buildArticles = this.buildArticles.bind(this);
     this.addArticles = this.addArticles.bind(this);
 
-    this.sortByColumn = this.sortByColumn.bind(this);
+    this.sortColumn = this.sortColumn.bind(this);
     this.fetchMoreArticles = this.fetchMoreArticles.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchFeed('../data/articles.json')
-              .then(() => this.setState({ articlesLoaded: true }));
+              .then(() => this.setState({ articlesLoaded: true }))
+              .then(() => {
+                if (this.state.sortedBy) {
+                  debugger
+                  let column, order;
+                  [column, order] = this.state.sortedBy.split('-');
+                  this.sortColumn(column, order);
+                }
+              });
   }
 
   componentWillReceiveProps(newProps) {
@@ -63,12 +71,12 @@ class FeedContainer extends React.Component {
     }
 
     this.setState({
-      articles: copiedArticles.concat(moreArticles),
-      disableLoadMore
+        articles: copiedArticles.concat(moreArticles),
+        disableLoadMore
     });
   }
 
-  sortByColumn(column, order) {
+  sortColumn(column, order) {
     const copiedArticles = [...this.state.articles];
 
     const sortActions = {
@@ -103,7 +111,7 @@ class FeedContainer extends React.Component {
 
     if (this.state.articlesLoaded) {
       articles = <Feed articles={this.state.articles}
-                       sort={this.sortByColumn}/>;
+                       sort={this.sortColumn}/>;
       button = <Button disabled={this.state.disableLoadMore}
                        onClick={this.addArticles}/>;
     }

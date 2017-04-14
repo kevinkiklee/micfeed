@@ -8,7 +8,12 @@ import './index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const store = configureStore();
+
+  const preloadedState = {
+    sortedBy: 'words-asc'
+  };
+
+  const store = configureStore(preloadedState);
 
   ReactDOM.render(<Root store={store}/>, root);
 });
