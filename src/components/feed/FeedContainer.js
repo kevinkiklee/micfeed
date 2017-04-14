@@ -47,7 +47,10 @@ class FeedContainer extends React.Component {
   }
 
   sortByColumn(column, order) {
-
+    return (column, order) => {
+      console.log('sort button clicked');
+    };
+    // let copiedArticles = [...this.state.articles];
   }
 
   render() {
@@ -55,6 +58,7 @@ class FeedContainer extends React.Component {
     let button = '';
 
     if (this.state.articlesLoaded) {
+      // debugger
       articles = <Feed articles={this.state.articles}
                        sort={this.sortByColumn}/>;
       button = <Button type='load'

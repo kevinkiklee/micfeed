@@ -55,3 +55,11 @@
 .iconSelected {
   color: #92ffe4;
 }
+
+.sortIconButton {
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: white;
+  background-color: inherit;
+}

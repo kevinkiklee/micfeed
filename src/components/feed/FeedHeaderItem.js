@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeedHeaderItem = ({ name, selected, action }) => {
+const FeedHeaderItem = ({ name, selected, sort }) => {
   const displayName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
 
   let sortAsc = 'fa fa-arrow-circle-up';
@@ -10,12 +10,22 @@ const FeedHeaderItem = ({ name, selected, action }) => {
     selected === 'asc' ? sortAsc += ' iconSelected' : sortDesc += ' iconSelected';
   }
 
+  // debugger
+
   return (
     <th className={name}>
       <h3>{displayName}
       <span className='sortIcons'>
-        <i className={sortAsc} aria-hidden="true"></i>
-        <i className={sortDesc} aria-hidden="true"></i>
+        <button className='sortIconButton'
+                onClick={sort(name, 'asc')}>
+          <i className={sortAsc}
+            aria-hidden="true"/>
+        </button>
+        <button className='sortIconButton'
+                onClick={sort(name, 'desc')}>
+          <i className={sortDesc}
+            aria-hidden="true"/>
+        </button>
       </span>
       </h3>
     </th>
