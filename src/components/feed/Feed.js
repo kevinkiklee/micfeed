@@ -7,7 +7,6 @@ import '../../styles/Feed.css';
 
 class Feed extends React.Component {
   render() {
-    // debugger
     return(
       <table className='Feed'>
         <FeedHeader sort={this.props.sort}/>

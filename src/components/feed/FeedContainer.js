@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { getAllArticles } from '../../reducers/selectors';
 import { fetchFeed } from '../../actions/feedActions';
+import Sort from '../../util/sortUtil';
 
 import Feed from './Feed';
 import Button from './Button';
@@ -47,10 +48,8 @@ class FeedContainer extends React.Component {
   }
 
   sortByColumn(column, order) {
-    return (column, order) => {
-      console.log('sort button clicked');
-    };
-    // let copiedArticles = [...this.state.articles];
+    // debugger
+    console.log('sort button clicked');
   }
 
   render() {
@@ -58,7 +57,6 @@ class FeedContainer extends React.Component {
     let button = '';
 
     if (this.state.articlesLoaded) {
-      // debugger
       articles = <Feed articles={this.state.articles}
                        sort={this.sortByColumn}/>;
       button = <Button type='load'

@@ -7,21 +7,6 @@ const FeedHeader = ({ action, selector, sort }) => {
   let wordsSelected = '';
   let submittedSelected = '';
 
-  // if (selector !== undefined) {
-  //   if (selector.column === 'author') {
-  //     if (selector.order === 'asc') {
-  //       authorSelected = 'asc';
-  //     } else {
-  //       authorSelected = 'desc';
-  //     }
-  //   } else if (selector.column === 'words') {
-  //     selector.order === 'asc' ? wordsSelected = 'asc' : wordsSelected = 'desc';
-  //   } else if (selector.column === 'submitted') {
-  //     selector.order === 'asc' ? submittedSelected = 'asc' : submittedSelected = 'desc';
-  //   }
-  // }
-  // debugger
-
   return (
     <thead className='FeedHeader'>
       <tr>
@@ -47,15 +32,3 @@ const FeedHeader = ({ action, selector, sort }) => {
 };
 
 export default FeedHeader;
-
-
-
-
-// <th className='author'>
-//   <h3>Author
-//   <span className='sortIcons'>
-//     <i className="fa fa-arrow-circle-up" aria-hidden="true"></i>
-//     <i className="fa fa-arrow-circle-down" aria-hidden="true"></i>
-//   </span>
-//   </h3>
-// </th>

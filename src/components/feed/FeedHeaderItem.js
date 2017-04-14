@@ -10,19 +10,17 @@ const FeedHeaderItem = ({ name, selected, sort }) => {
     selected === 'asc' ? sortAsc += ' iconSelected' : sortDesc += ' iconSelected';
   }
 
-  // debugger
-
   return (
     <th className={name}>
       <h3>{displayName}
       <span className='sortIcons'>
         <button className='sortIconButton'
-                onClick={sort(name, 'asc')}>
+                onClick={() => sort(name, 'asc')}>
           <i className={sortAsc}
             aria-hidden="true"/>
         </button>
         <button className='sortIconButton'
-                onClick={sort(name, 'desc')}>
+                onClick={() => sort(name, 'desc')}>
           <i className={sortDesc}
             aria-hidden="true"/>
         </button>
