@@ -1,6 +1,8 @@
 import React from 'react';
 import cookie from 'react-cookie';
 
+import SortButton from './SortButton';
+
 const FeedHeaderItem = ({ name, sort, clearSort }) => {
   const displayName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
 
@@ -19,26 +21,18 @@ const FeedHeaderItem = ({ name, sort, clearSort }) => {
     }
 
     clearSortButton =
-      <button className='sortIconButton'
-              onClick={() => clearSort()}>
-        <i className="fa fa-times-circle" aria-hidden="true"></i>
-      </button>;
+      <SortButton iconClass='fa fa-times-circle'
+                  onClick={() => clearSort()}/>;
   }
 
   return (
     <th className={name}>
       <h3>{displayName}
       <span className='sortIcons'>
-        <button className='sortIconButton'
-                onClick={() => sort(name, 'asc')}>
-          <i className={sortAsc}
-            aria-hidden="true"/>
-        </button>
-        <button className='sortIconButton'
-                onClick={() => sort(name, 'dsc')}>
-          <i className={sortDsc}
-            aria-hidden="true"/>
-        </button>
+        <SortButton iconClass={sortAsc}
+                    onClick={() => sort(name, 'asc')}/>
+        <SortButton iconClass={sortDsc}
+                    onClick={() => sort(name, 'dsc')}/>
         { clearSortButton }
       </span>
       </h3>
