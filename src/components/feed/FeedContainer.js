@@ -7,7 +7,7 @@ import sortBy from 'lodash/sortBy';
 import { fetchFeed } from '../../actions/feedActions';
 
 import Feed from './Feed';
-import Button from './Button';
+import LoadMoreButton from './LoadMoreButton';
 
 class FeedContainer extends React.Component {
   constructor(props) {
@@ -122,7 +122,7 @@ class FeedContainer extends React.Component {
       articles = <Feed articles={this.state.articles}
                        sort={this.sortColumn}
                        clearSort={this.clearSort}/>;
-      button = <Button disabled={this.state.disableLoadMore}
+      button = <LoadMoreButton disabled={this.state.disableLoadMore}
                        onClick={this.increaseArticleCount}/>;
     }
 

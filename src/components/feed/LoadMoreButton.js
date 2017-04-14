@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ disabled, onClick }) => {
+const LoadMoreButton = ({ disabled, onClick }) => {
   return (
     <button disabled={disabled}
             onClick={onClick}>
@@ -9,4 +9,4 @@ const Button = ({ disabled, onClick }) => {
   );
 };
 
-export default Button;
+export default LoadMoreButton;
