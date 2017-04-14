@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from '../logo.svg';
 import '../styles/App.css';
 
 import FeedContainer from './feed/FeedContainer';
@@ -18,5 +17,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <img src={logo} className="AppLogo" alt="logo" />

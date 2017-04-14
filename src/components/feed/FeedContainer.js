@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import cookie from 'react-cookie';
 import sortBy from 'lodash/sortBy';
 
 import { fetchFeed } from '../../actions/feedActions';
@@ -17,7 +18,7 @@ class FeedContainer extends React.Component {
       articles: [],
       disableLoadMore: false,
       articlesLoaded: false,
-      sortedBy: this.props.sortedBy,
+      sortedBy: cookie.load('sortedBy'),
     };
 
     this.buildArticles = this.buildArticles.bind(this);
@@ -32,8 +33,7 @@ class FeedContainer extends React.Component {
               .then(() => this.setState({ articlesLoaded: true }))
               .then(() => {
                 if (this.state.sortedBy) {
-                  let column, order;
-                  [column, order] = this.state.sortedBy.split('-');
+                  let [column, order] = this.state.sortedBy.split('-');
                   this.sortColumn(column, order);
                 }
               });
@@ -100,6 +100,8 @@ class FeedContainer extends React.Component {
     const sortedArticles = sortActions[column][order];
     const sortedBy = `${column}-${order}`;
 
+    cookie.save('sortedBy', sortedBy);
+
     this.setState({ articles: sortedArticles,
                     sortedBy });
   }
@@ -127,7 +129,6 @@ class FeedContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     articles: state.feed,
-    sortedBy: state.sortedBy,
   };
 };
 
