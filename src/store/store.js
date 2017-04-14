@@ -9,10 +9,10 @@ if (process.env.NODE_ENV !== 'production') {
   middlewares.push(logger);
 }
 
-const configureStore = (initialState = {}) => {
+const configureStore = (preloadedState = {}) => {
   return createStore(
     RootReducer,
-    initialState,
+    preloadedState,
     applyMiddleware(...middlewares)
   );
 };

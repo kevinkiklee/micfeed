@@ -16,8 +16,9 @@ class FeedContainer extends React.Component {
     this.articleCount = 10;
 
     this.state = {
+      sortedBy: this.props.sortedBy,
       articlesLoaded: false,
-      articles: []
+      articles: [],
     };
 
     this.buildArticles = this.buildArticles.bind(this);
@@ -73,10 +74,12 @@ class FeedContainer extends React.Component {
         desc: sortBy(copiedArticles, (o) => o.publish_at).reverse(),
       }
     };
-
+    debugger
     const sortedArticles = sortActions[column][order];
+    const sortedBy = `${column}${order}`;
 
-    this.setState({ articles: sortedArticles });
+    this.setState({ articles: sortedArticles,
+                    sortedBy });
   }
 
   render() {
@@ -102,6 +105,7 @@ class FeedContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     articles: getAllArticles(state),
+    sortedBy: state.sortedBy,
   };
 };
 
