@@ -17,7 +17,7 @@ class FeedContainer extends React.Component {
 
     this.state = {
       articles: [],
-      loadMore: true,
+      disableLoadMore: false,
       articlesLoaded: false,
       sortedBy: this.props.sortedBy,
     };
@@ -47,8 +47,6 @@ class FeedContainer extends React.Component {
   addArticles(e) {
     if (this.articleCount === 30) {
       this.fetchMoreArticles();
-    } else if (this.articleCount >= this.props.articles.length ){
-      this.setState({ loadMore: false });
     }
 
     this.articleCount += 10;
@@ -60,8 +58,15 @@ class FeedContainer extends React.Component {
     const moreArticles = articles.slice(this.articleCount - 10,
                                         this.articleCount);
 
+    let disableLoadMore = false;
+
+    if (this.articleCount >= 60) {
+      disableLoadMore = true;
+    }
+
     this.setState({
-      articles: copiedArticles.concat(moreArticles)
+      articles: copiedArticles.concat(moreArticles),
+      disableLoadMore
     });
   }
 
@@ -102,6 +107,7 @@ class FeedContainer extends React.Component {
       articles = <Feed articles={this.state.articles}
                        sort={this.sortByColumn}/>;
       button = <Button type='load'
+                       disabled={this.state.disableLoadMore}
                        onClick={this.addArticles}/>;
     }
 
