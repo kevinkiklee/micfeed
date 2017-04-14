@@ -1,4 +1,4 @@
-import { RECEIVE_FEED } from '../actions/feedActions.js';
+import { SET_SORTED_BY } from '../actions/sortedByActions.js';
 
 const initialState = '';
 
@@ -6,8 +6,8 @@ const SortedByReducer = (state = initialState, action) => {
   Object.freeze();
 
   switch (action.type) {
-    case RECEIVE_FEED:
-      return [...state].concat(action.feed);
+    case SET_SORTED_BY:
+      return action.sortedBy;
 
     default:
       return state;

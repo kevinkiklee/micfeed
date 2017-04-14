@@ -32,7 +32,6 @@ class FeedContainer extends React.Component {
               .then(() => this.setState({ articlesLoaded: true }))
               .then(() => {
                 if (this.state.sortedBy) {
-                  debugger
                   let column, order;
                   [column, order] = this.state.sortedBy.split('-');
                   this.sortColumn(column, order);
