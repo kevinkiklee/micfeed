@@ -9,7 +9,8 @@ class Feed extends React.Component {
   render() {
     return(
       <table className='Feed'>
-        <FeedHeader sort={this.props.sort}/>
+        <FeedHeader sort={this.props.sort}
+                    clearSort={this.props.clearSort}/>
         <ArticleList articles={this.props.articles}/>
       </table>
     );

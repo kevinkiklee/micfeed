@@ -22,11 +22,12 @@ class FeedContainer extends React.Component {
       sortedBy: cookie.load('sortedBy'),
     };
 
-    this.buildArticles = this.buildArticles.bind(this);
     this.addArticles = this.addArticles.bind(this);
+    this.increaseArticleCount = this.increaseArticleCount.bind(this);
+    this.fetchMoreArticles = this.fetchMoreArticles.bind(this);
 
     this.sortColumn = this.sortColumn.bind(this);
-    this.fetchMoreArticles = this.fetchMoreArticles.bind(this);
+    this.clearSort = this.clearSort.bind(this);
   }
 
   componentDidMount() {
@@ -42,7 +43,7 @@ class FeedContainer extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props !== newProps) {
-      this.buildArticles(newProps.articles);
+      this.addArticles(newProps.articles);
     }
   }
 
@@ -50,16 +51,16 @@ class FeedContainer extends React.Component {
     this.props.fetchFeed('../data/more-articles.json');
   }
 
-  addArticles(e) {
+  increaseArticleCount(e) {
     if (this.articleCount === 30) {
       this.fetchMoreArticles();
     }
 
     this.articleCount += 10;
-    this.buildArticles(this.props.articles);
+    this.addArticles(this.props.articles);
   }
 
-  buildArticles(articles) {
+  addArticles(articles) {
     const copiedArticles = [...this.state.articles];
     const moreArticles = articles.slice(this.articleCount - 10,
                                         this.articleCount);
@@ -71,8 +72,8 @@ class FeedContainer extends React.Component {
     }
 
     this.setState({
-        articles: copiedArticles.concat(moreArticles),
-        disableLoadMore
+      articles: copiedArticles.concat(moreArticles),
+      disableLoadMore
     });
   }
 
@@ -107,15 +108,22 @@ class FeedContainer extends React.Component {
                     sortedBy });
   }
 
+  clearSort() {
+    cookie.save('sortedBy', '');
+    const articles = this.props.articles.slice(0, this.articleCount);
+    this.setState({ articles });
+  }
+
   render() {
     let articles = 'Loading...';
     let button = '';
 
     if (this.state.articlesLoaded) {
       articles = <Feed articles={this.state.articles}
-                       sort={this.sortColumn}/>;
+                       sort={this.sortColumn}
+                       clearSort={this.clearSort}/>;
       button = <Button disabled={this.state.disableLoadMore}
-                       onClick={this.addArticles}/>;
+                       onClick={this.increaseArticleCount}/>;
     }
 
     return (
