@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { getAllArticles } from '../../reducers/selectors';
 import { fetchFeed } from '../../actions/feedActions';
-// import { byAuthorAsc } from '../../util/sortUtil';
 
 import sortBy from 'lodash/sortBy';
 
@@ -44,18 +43,13 @@ class FeedContainer extends React.Component {
   }
 
   buildArticles(articles) {
+    const copiedArticles = [...this.state.articles];
+    const moreArticles = articles.slice(this.articleCount - 10,
+                                        this.articleCount);
+
     this.setState({
-      articles: articles.slice(0, this.articleCount)
+      articles: copiedArticles.concat(moreArticles)
     });
-  }
-
-  byAuthorAsc(a, b) {
-    const aName = `${a.profile.first_name} ${a.profile.last_name}`;
-    const bName = `${b.profile.first_name} ${b.profile.last_name}`;
-
-    if(aName < bName) return -1;
-    if(aName > bName) return 1;
-    return 0;
   }
 
   sortByColumn(column, order) {
