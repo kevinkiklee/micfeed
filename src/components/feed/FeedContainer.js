@@ -16,15 +16,17 @@ class FeedContainer extends React.Component {
     this.articleCount = 10;
 
     this.state = {
-      sortedBy: this.props.sortedBy,
-      articlesLoaded: false,
       articles: [],
+      loadMore: true,
+      articlesLoaded: false,
+      sortedBy: this.props.sortedBy,
     };
 
     this.buildArticles = this.buildArticles.bind(this);
-    this.increaseArticleCount = this.increaseArticleCount.bind(this);
+    this.addArticles = this.addArticles.bind(this);
 
     this.sortByColumn = this.sortByColumn.bind(this);
+    this.fetchMoreArticles = this.fetchMoreArticles.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +40,17 @@ class FeedContainer extends React.Component {
     }
   }
 
-  increaseArticleCount(e) {
+  fetchMoreArticles() {
+    this.props.fetchFeed('../data/more-articles.json');
+  }
+
+  addArticles(e) {
+    if (this.articleCount === 30) {
+      this.fetchMoreArticles();
+    } else if (this.articleCount >= this.props.articles.length ){
+      this.setState({ loadMore: false });
+    }
+
     this.articleCount += 10;
     this.buildArticles(this.props.articles);
   }
@@ -90,7 +102,7 @@ class FeedContainer extends React.Component {
       articles = <Feed articles={this.state.articles}
                        sort={this.sortByColumn}/>;
       button = <Button type='load'
-                       onClick={this.increaseArticleCount}/>;
+                       onClick={this.addArticles}/>;
     }
 
     return (
