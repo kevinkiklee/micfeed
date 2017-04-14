@@ -4,10 +4,10 @@ const FeedHeaderItem = ({ name, selected, sort }) => {
   const displayName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
 
   let sortAsc = 'fa fa-arrow-circle-up';
-  let sortDesc = 'fa fa-arrow-circle-down';
+  let sortdsc = 'fa fa-arrow-circle-down';
 
   if (selected !== '') {
-    selected === 'asc' ? sortAsc += ' iconSelected' : sortDesc += ' iconSelected';
+    selected === 'asc' ? sortAsc += ' iconSelected' : sortdsc += ' iconSelected';
   }
 
   return (
@@ -20,8 +20,8 @@ const FeedHeaderItem = ({ name, selected, sort }) => {
             aria-hidden="true"/>
         </button>
         <button className='sortIconButton'
-                onClick={() => sort(name, 'desc')}>
-          <i className={sortDesc}
+                onClick={() => sort(name, 'dsc')}>
+          <i className={sortdsc}
             aria-hidden="true"/>
         </button>
       </span>

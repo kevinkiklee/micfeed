@@ -78,17 +78,17 @@ class FeedContainer extends React.Component {
         asc: sortBy(copiedArticles, (o) => {
           return `${o.profile.first_name} ${o.profile.last_name}`;
         }),
-        desc: sortBy(copiedArticles, (o) => {
+        dsc: sortBy(copiedArticles, (o) => {
           return `${o.profile.first_name} ${o.profile.last_name}`;
         }).reverse(),
       },
       words: {
         asc: sortBy(copiedArticles, (o) => o.words),
-        desc: sortBy(copiedArticles, (o) => o.words).reverse(),
+        dsc: sortBy(copiedArticles, (o) => o.words).reverse(),
       },
       submitted: {
         asc: sortBy(copiedArticles, (o) => o.publish_at),
-        desc: sortBy(copiedArticles, (o) => o.publish_at).reverse(),
+        dsc: sortBy(copiedArticles, (o) => o.publish_at).reverse(),
       }
     };
 
