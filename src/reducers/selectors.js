@@ -1,3 +1,3 @@
-export const getAllArticles = ({ feed }) => (
-	Object.keys(feed).map(id => feed[id])
-);
+// export const getAllArticles = ({ feed }) => (
+// 	Object.keys(feed).map(id => feed[id])
+// );

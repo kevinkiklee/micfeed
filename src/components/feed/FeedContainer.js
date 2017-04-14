@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { getAllArticles } from '../../reducers/selectors';
-import { fetchFeed } from '../../actions/feedActions';
-
 import sortBy from 'lodash/sortBy';
+
+import { fetchFeed } from '../../actions/feedActions';
 
 import Feed from './Feed';
 import Button from './Button';
@@ -93,7 +91,7 @@ class FeedContainer extends React.Component {
     };
 
     const sortedArticles = sortActions[column][order];
-    const sortedBy = `${column}${order}`;
+    const sortedBy = `${column}-${order}`;
 
     this.setState({ articles: sortedArticles,
                     sortedBy });
@@ -106,8 +104,7 @@ class FeedContainer extends React.Component {
     if (this.state.articlesLoaded) {
       articles = <Feed articles={this.state.articles}
                        sort={this.sortByColumn}/>;
-      button = <Button type='load'
-                       disabled={this.state.disableLoadMore}
+      button = <Button disabled={this.state.disableLoadMore}
                        onClick={this.addArticles}/>;
     }
 
@@ -122,7 +119,7 @@ class FeedContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    articles: getAllArticles(state),
+    articles: state.feed,
     sortedBy: state.sortedBy,
   };
 };

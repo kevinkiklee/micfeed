@@ -25,7 +25,6 @@ const FeedHeader = ({ action, selector, sort }) => {
         <FeedHeaderItem name='submitted'
                         selected={submittedSelected}
                         sort={sort}/>
-
       </tr>
     </thead>
   );
