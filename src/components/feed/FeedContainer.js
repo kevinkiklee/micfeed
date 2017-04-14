@@ -115,23 +115,17 @@ class FeedContainer extends React.Component {
   }
 
   render() {
-    let articles = 'Loading...';
-    let button = '';
-
     if (this.state.articlesLoaded) {
-      articles = <Feed articles={this.state.articles}
-                       sort={this.sortColumn}
-                       clearSort={this.clearSort}/>;
-      button = <LoadMoreButton disabled={this.state.disableLoadMore}
-                       onClick={this.increaseArticleCount}/>;
+      return (
+        <Feed articles={this.state.articles}
+              sort={this.sortColumn}
+              clearSort={this.clearSort}
+              disableLoadMore={this.state.disableLoadMore}
+              onLoadMoreClick={this.increaseArticleCount}/>
+      );
+    } else {
+      return <div>Loading...</div>;
     }
-
-    return (
-      <div className='FeedContainer'>
-        { articles }
-        { button }
-      </div>
-    );
   }
 }
 
