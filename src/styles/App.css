@@ -8,7 +8,8 @@
   line-height: 1.3;
 }
 
-.AppHeader {
+.Header,
+.Footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,14 +20,20 @@
   color: white;
 }
 
-.AppHeader h2 {
+.Header h2 {
   font-weight: 800;
   font-size: 24px;
   margin: 10px;
 }
 
-.AppHeader span {
+.Header span {
   color: #00FFBF;
+}
+
+.Footer h4 {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 10px;
 }
 
 .FeedContainer {

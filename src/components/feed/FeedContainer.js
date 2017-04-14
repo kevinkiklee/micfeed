@@ -7,7 +7,6 @@ import sortBy from 'lodash/sortBy';
 import { fetchFeed } from '../../actions/feedActions';
 
 import Feed from './Feed';
-import LoadMoreButton from './LoadMoreButton';
 
 class FeedContainer extends React.Component {
   constructor(props) {

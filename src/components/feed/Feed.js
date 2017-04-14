@@ -9,7 +9,7 @@ import '../../styles/Feed.css';
 class Feed extends React.Component {
   render() {
     return(
-      <div className='FeedContainer'>
+      <div className='FeedWrapper'>
         <table className='Feed'>
           <FeedHeader sort={this.props.sort}
                       clearSort={this.props.clearSort}/>
