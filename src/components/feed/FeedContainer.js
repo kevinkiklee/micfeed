@@ -128,7 +128,11 @@ class FeedContainer extends React.Component {
               onLoadMoreClick={this.increaseArticleCount}/>
       );
     } else {
-      return <div>Loading...</div>;
+      return (
+        <div className='SpinnerWrapper'>
+          <h1>Loading...</h1>
+        </div>
+      );
     }
   }
 }

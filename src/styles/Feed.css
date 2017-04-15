@@ -1,3 +1,15 @@
+.SpinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 89px);
+}
+
+.SpinnerWrapper h1 {
+  font-size: 100px;
+  color: black;
+}
+
 .FeedWrapper {
   margin: 15px;
   display: flex;
