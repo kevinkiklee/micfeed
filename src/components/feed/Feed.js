@@ -10,7 +10,8 @@ const Feed = (props) => {
   return (
     <div className='FeedWrapper'>
       <table className='Feed'>
-        <FeedHeader sortActions={props.sortActions}/>
+        <FeedHeader sortActions={props.sortActions}
+                    articleCount={props.articleCount}/>
         <ArticleList articles={props.articles}/>
       </table>
       <LoadMoreButton disabled={props.disableLoadMore}
@@ -18,12 +19,5 @@ const Feed = (props) => {
     </div>
   );
 };
-
-// class Feed extends React.Component {
-//   render() {
-//
-//     );
-//   }
-// }
 
 export default Feed;

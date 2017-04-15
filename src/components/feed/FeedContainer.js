@@ -122,6 +122,7 @@ class FeedContainer extends React.Component {
     if (this.state.articlesLoaded) {
       return (
         <Feed articles={this.state.articles}
+              articleCount={this.state.articles.length}
               sortActions={sortActions}
               disableLoadMore={this.state.disableLoadMore}
               onLoadMoreClick={this.increaseArticleCount}/>
