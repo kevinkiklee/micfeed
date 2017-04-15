@@ -8,6 +8,9 @@ const FeedHeaderItem = ({ name, actions }) => {
 
   let clearSortButton = '';
 
+  let ascDisabled = false;
+  let dscDisabled = false;
+
   let sortAsc = 'fa fa-arrow-circle-up';
   let sortDsc = 'fa fa-arrow-circle-down';
 
@@ -16,8 +19,10 @@ const FeedHeaderItem = ({ name, actions }) => {
   if (name === cookieName) {
     if (cookieOrder === 'asc') {
       sortAsc += ' iconSelected';
+      ascDisabled = true;
     } else {
       sortDsc += ' iconSelected';
+      dscDisabled = true;
     }
 
     clearSortButton =
@@ -30,9 +35,11 @@ const FeedHeaderItem = ({ name, actions }) => {
       <h3>{displayName}
       <span className='sortIcons'>
         <SortButton iconClass={sortAsc}
-                    onClick={() => actions.sortColumn(name, 'asc')}/>
+                    onClick={() => actions.sortColumn(name, 'asc')}
+                    disabled={ascDisabled}/>
         <SortButton iconClass={sortDsc}
-                    onClick={() => actions.sortColumn(name, 'dsc')}/>
+                    onClick={() => actions.sortColumn(name, 'dsc')}
+                    disabled={dscDisabled}/>
         { clearSortButton }
       </span>
       </h3>
