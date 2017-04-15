@@ -33,6 +33,12 @@ td {
 .SummaryTextContainer h2 {
   padding: 5px 0px;
   font-weight: 600;
+  transition: all 0.3s ease 0s;
+}
+
+.SummaryTextContainer h2:hover {
+  color: #027bc1;
+  transition: all 0.3s ease 0s;
 }
 
 .PreviewImage {
