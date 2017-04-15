@@ -8,7 +8,8 @@ const Summary = ({ summary }) => {
   return (
     <td className='Summary'>
       <PreviewImage image={summary.image}
-                    alt={summary.title}/>
+                    alt={summary.title}
+                    link={summary.link}/>
       <div className='SummaryTextContainer'>
         <Title title={summary.title}
                link={summary.link}/>

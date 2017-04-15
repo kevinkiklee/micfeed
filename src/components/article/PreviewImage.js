@@ -1,10 +1,12 @@
 import React from 'react';
 
-const PreviewImage = ({ image, alt }) => {
+const PreviewImage = ({ image, alt, link }) => {
   return (
     <div className='PreviewImage'>
-      <img src={image}
-           alt={alt} />
+      <a href={link} target='_blank'>
+        <img src={image}
+             alt={alt} />
+      </a>
     </div>
   );
 };

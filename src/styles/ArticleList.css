@@ -6,10 +6,6 @@ td {
   background-color: #f1f6ff;
 }
 
-.ArticleList img {
-  height: 75px;
-}
-
 .Feed td {
   border-collapse: collapse;
   border-spacing: 0;
@@ -31,8 +27,9 @@ td {
 }
 
 .SummaryTextContainer h2 {
-  padding: 5px 0px;
+  font-size: 14px;
   font-weight: 600;
+  padding: 5px 0px;
   transition: all 0.3s ease 0s;
 }
 
@@ -49,6 +46,17 @@ td {
   width: 75px;
   min-width: 75px;
   margin-right: 10px;
+  background-color: black;
+}
+
+.PreviewImage img {
+  height: 75px;
+  transition: all 0.3s ease 0s;
+}
+
+.PreviewImage img:hover {
+  opacity: 0.7;
+  transition: all 0.3s ease 0s;
 }
 
 .TagList {
