@@ -81,29 +81,29 @@ class FeedContainer extends React.Component {
 
     const sortActions = {
       author: {
-        asc: sortBy(copiedArticles, (o) => (
+        asc: () => sortBy(copiedArticles, (o) => (
           `${o.profile.first_name} ${o.profile.last_name}`
         )),
-        dsc: sortBy(copiedArticles, (o) => (
+        dsc: () => sortBy(copiedArticles, (o) => (
           `${o.profile.first_name} ${o.profile.last_name}`
         )).reverse(),
       },
       words: {
-        asc: sortBy(copiedArticles, (o) => o.words),
-        dsc: sortBy(copiedArticles, (o) => o.words).reverse(),
+        asc: () => sortBy(copiedArticles, (o) => o.words),
+        dsc: () => sortBy(copiedArticles, (o) => o.words).reverse(),
       },
       submitted: {
-        asc: sortBy(copiedArticles, (o) => o.publish_at),
-        dsc: sortBy(copiedArticles, (o) => o.publish_at).reverse(),
+        asc: () => sortBy(copiedArticles, (o) => o.publish_at),
+        dsc: () => sortBy(copiedArticles, (o) => o.publish_at).reverse(),
       }
     };
 
-    const sortedArticles = sortActions[column][order];
+    const articles = sortActions[column][order]();
     const sortedBy = `${column}-${order}`;
 
     cookie.save('sortedBy', sortedBy);
 
-    this.setState({ articles: sortedArticles,
+    this.setState({ articles,
                     sortedBy });
   }
 
@@ -114,11 +114,15 @@ class FeedContainer extends React.Component {
   }
 
   render() {
+    const sortActions = {
+      sortColumn: this.sortColumn,
+      clearSort: this.clearSort,
+    };
+
     if (this.state.articlesLoaded) {
       return (
         <Feed articles={this.state.articles}
-              sort={this.sortColumn}
-              clearSort={this.clearSort}
+              sortActions={sortActions}
               disableLoadMore={this.state.disableLoadMore}
               onLoadMoreClick={this.increaseArticleCount}/>
       );

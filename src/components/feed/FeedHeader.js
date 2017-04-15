@@ -2,7 +2,7 @@ import React from 'react';
 
 import FeedHeaderItem from './FeedHeaderItem';
 
-const FeedHeader = ({ action, sort, clearSort }) => {
+const FeedHeader = ({ sortActions }) => {
   return (
     <thead className='FeedHeader'>
       <tr>
@@ -10,14 +10,11 @@ const FeedHeader = ({ action, sort, clearSort }) => {
           <h3>Unpublished Articles</h3>
         </th>
         <FeedHeaderItem name='author'
-                        sort={sort}
-                        clearSort={clearSort}/>
+                        actions={sortActions}/>
         <FeedHeaderItem name='words'
-                        sort={sort}
-                        clearSort={clearSort}/>
+                        actions={sortActions}/>
         <FeedHeaderItem name='submitted'
-                        sort={sort}
-                        clearSort={clearSort}/>
+                        actions={sortActions}/>
       </tr>
     </thead>
   );

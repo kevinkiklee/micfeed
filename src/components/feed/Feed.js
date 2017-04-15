@@ -6,20 +6,24 @@ import LoadMoreButton from './LoadMoreButton';
 
 import '../../styles/Feed.css';
 
-class Feed extends React.Component {
-  render() {
-    return(
-      <div className='FeedWrapper'>
-        <table className='Feed'>
-          <FeedHeader sort={this.props.sort}
-                      clearSort={this.props.clearSort}/>
-          <ArticleList articles={this.props.articles}/>
-        </table>
-        <LoadMoreButton disabled={this.props.disableLoadMore}
-                        onClick={this.props.onLoadMoreClick}/>
-      </div>
-    );
-  }
-}
+const Feed = (props) => {
+  return (
+    <div className='FeedWrapper'>
+      <table className='Feed'>
+        <FeedHeader sortActions={props.sortActions}/>
+        <ArticleList articles={props.articles}/>
+      </table>
+      <LoadMoreButton disabled={props.disableLoadMore}
+                      onClick={props.onLoadMoreClick}/>
+    </div>
+  );
+};
+
+// class Feed extends React.Component {
+//   render() {
+//
+//     );
+//   }
+// }
 
 export default Feed;

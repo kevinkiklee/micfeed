@@ -3,7 +3,7 @@ import cookie from 'react-cookie';
 
 import SortButton from './SortButton';
 
-const FeedHeaderItem = ({ name, sort, clearSort }) => {
+const FeedHeaderItem = ({ name, actions }) => {
   const displayName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
 
   let clearSortButton = '';
@@ -22,7 +22,7 @@ const FeedHeaderItem = ({ name, sort, clearSort }) => {
 
     clearSortButton =
       <SortButton iconClass='fa fa-times-circle'
-                  onClick={() => clearSort()}/>;
+                  onClick={() => actions.clearSort()}/>;
   }
 
   return (
@@ -30,9 +30,9 @@ const FeedHeaderItem = ({ name, sort, clearSort }) => {
       <h3>{displayName}
       <span className='sortIcons'>
         <SortButton iconClass={sortAsc}
-                    onClick={() => sort(name, 'asc')}/>
+                    onClick={() => actions.sortColumn(name, 'asc')}/>
         <SortButton iconClass={sortDsc}
-                    onClick={() => sort(name, 'dsc')}/>
+                    onClick={() => actions.sortColumn(name, 'dsc')}/>
         { clearSortButton }
       </span>
       </h3>
