@@ -12,40 +12,29 @@ class FeedHeaderItemContainer extends React.Component {
     const displayName = column.charAt(0).toUpperCase()
                       + column.slice(1, column.length);
 
-    let clearSortButton = '';
-
-    let ascDisabled = false;
-    let dscDisabled = false;
-
     let sortAsc = 'fa fa-arrow-circle-up';
     let sortDsc = 'fa fa-arrow-circle-down';
+
+    const clearAction = this.props.setSort({ column: '', order: '' });
+    let ascAction = this.props.setSort({ column, order: 'asc' });
+    let dscAction = this.props.setSort({ column, order: 'dsc' });
 
     if (this.props.column === this.props.sort.column) {
       if (this.props.sort.order === 'asc') {
         sortAsc += ' iconSelected';
-        ascDisabled = true;
+        ascAction = clearAction;
       } else {
         sortDsc += ' iconSelected';
-        dscDisabled = true;
+        dscAction = clearAction;
       }
-
-      clearSortButton =
-        <FeedHeaderItem iconClass='fa fa-times-circle'
-                        action={this.props.setSort({ column: '',
-                                                     order: '', })}/>;
     }
 
     return (
       <th className={column}>
         <h3>{displayName}
         <span className='sortIcons'>
-          <FeedHeaderItem iconClass={sortAsc}
-                          action={this.props.setSort({ column, order: 'asc' })}
-                          disabled={ascDisabled}/>
-          <FeedHeaderItem iconClass={sortDsc}
-                          action={this.props.setSort({ column, order: 'dsc' })}
-                          disabled={dscDisabled}/>
-          { clearSortButton }
+          <FeedHeaderItem iconClass={sortAsc} action={ascAction}/>
+          <FeedHeaderItem iconClass={sortDsc} action={dscAction}/>
         </span>
         </h3>
       </th>

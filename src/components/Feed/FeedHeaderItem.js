@@ -1,23 +1,12 @@
 import React from 'react';
 
-const FeedHeaderItem = ({ iconClass, disabled, action }) => {
-  const icon = <i className={iconClass}
-                  aria-hidden='true'/>;
-
-  if (disabled) {
-    return (
-      <span className='sortIconButton'>
-        { icon }
-      </span>
-    );
-  } else {
-    return (
-      <button className='sortIconButton'
-              onClick={() => action()}>
-        { icon }
-      </button>
-    );
-  }
+const FeedHeaderItem = ({ iconClass, action }) => {
+  return (
+    <button className='sortIconButton'
+            onClick={() => action()}>
+      <i className={iconClass} aria-hidden='true'/>
+    </button>
+  );
 };
 
 export default FeedHeaderItem;
