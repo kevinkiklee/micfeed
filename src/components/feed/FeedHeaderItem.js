@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SortButton = ({ iconClass, disabled, onClick }) => {
+const FeedHeaderItem = ({ iconClass, disabled, onClick }) => {
   const icon = <i className={iconClass}
                   aria-hidden='true'/>;
 
@@ -20,4 +20,4 @@ const SortButton = ({ iconClass, disabled, onClick }) => {
   }
 };
 
-export default SortButton;
+export default FeedHeaderItem;

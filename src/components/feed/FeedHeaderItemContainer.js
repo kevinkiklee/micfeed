@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { setSort } from '../../actions/sortActions';
 
-import SortButton from './SortButton';
+import FeedHeaderItem from './FeedHeaderItem';
 
 class FeedHeaderItemContainer extends React.Component {
   render () {
@@ -29,7 +29,7 @@ class FeedHeaderItemContainer extends React.Component {
       }
 
       clearSortButton =
-        <SortButton iconClass='fa fa-times-circle'
+        <FeedHeaderItem iconClass='fa fa-times-circle'
                     onClick={() => this.props.setSort()}/>;
     }
 
@@ -37,11 +37,11 @@ class FeedHeaderItemContainer extends React.Component {
       <th className={column}>
         <h3>{displayName}
         <span className='sortIcons'>
-          <SortButton iconClass={sortAsc}
+          <FeedHeaderItem iconClass={sortAsc}
                       onClick={() => this.props.setSort({ column: column,
                                                           order: 'asc' })}
                       disabled={ascDisabled}/>
-          <SortButton iconClass={sortDsc}
+                    <FeedHeaderItem iconClass={sortDsc}
                       onClick={() => this.props.setSort({ column: column,
                                                           order: 'dsc' })}
                       disabled={dscDisabled}/>
