@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import cookie from 'react-cookie';
 
 import { setSort } from '../../actions/sortActions';
 
 import SortButton from './SortButton';
 
-class FeedHeaderItem extends React.Component {
+class FeedHeaderItemContainer extends React.Component {
   render () {
     const column = this.props.column;
     const displayName = column.charAt(0).toUpperCase()
@@ -66,4 +65,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FeedHeaderItem);
+)(FeedHeaderItemContainer);

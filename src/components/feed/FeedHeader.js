@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FeedHeaderItem from './FeedHeaderItem';
+import FeedHeaderItemContainer from './FeedHeaderItemContainer';
 
 const FeedHeader = ({ articleCount }) => {
   return (
@@ -9,9 +9,9 @@ const FeedHeader = ({ articleCount }) => {
         <th className='summary'>
           <h3>Unpublished Articles <span>({ articleCount })</span></h3>
         </th>
-        <FeedHeaderItem column='author'/>
-        <FeedHeaderItem column='words'/>
-        <FeedHeaderItem column='submitted'/>
+        <FeedHeaderItemContainer column='author'/>
+        <FeedHeaderItemContainer column='words'/>
+        <FeedHeaderItemContainer column='submitted'/>
       </tr>
     </thead>
   );
