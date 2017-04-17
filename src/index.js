@@ -5,7 +5,7 @@ import configureStore from './store/store';
 
 import Root from './Root.js';
 
-import './index.css';
+import './styles/index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
