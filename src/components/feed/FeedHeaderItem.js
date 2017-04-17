@@ -14,7 +14,7 @@ const FeedHeaderItem = ({ name, actions }) => {
   let sortAsc = 'fa fa-arrow-circle-up';
   let sortDsc = 'fa fa-arrow-circle-down';
 
-  const [cookieName, cookieOrder] = cookie.load('sortedBy').split('-');
+  const [cookieName, cookieOrder] = cookie.load('sort').split('-');
 
   if (name === cookieName) {
     if (cookieOrder === 'asc') {

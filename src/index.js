@@ -9,15 +9,15 @@ import './index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const sortedBy = cookie.load('sortedBy');
+  const sort = cookie.load('sort');
   const preloadedState = { sort: {} };
 
-  if (sortedBy) {
-    const [column, order] = sortedBy.split('-');
+  if (sort) {
+    const [column, order] = sort.split('-');
     preloadedState.sort.column = column;
     preloadedState.sort.order = order;
   } else {
-    cookie.save('sortedBy', '');
+    cookie.save('sort', '');
   }
 
   const store = configureStore(preloadedState);

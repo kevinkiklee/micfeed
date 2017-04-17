@@ -10,7 +10,7 @@ export const receiveSort = (sort) => ({
 export const setSort = (sort) => dispatch => {
   return (sort) => dispatch(receiveSort(sort))
     .then(() => {
-      const sortedBy = `${sort.column}-${sort.order}`;
-      cookie.save('sortedBy', sortedBy);
+      const sortString = `${sort.column}-${sort.order}`;
+      cookie.save('sort', sortString);
     });
 };

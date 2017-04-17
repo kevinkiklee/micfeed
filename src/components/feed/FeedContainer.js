@@ -5,6 +5,7 @@ import cookie from 'react-cookie';
 import sortBy from 'lodash/sortBy';
 
 import { fetchFeed } from '../../actions/feedActions';
+import { setSort } from '../../actions/sortActions';
 
 import Feed from './Feed';
 
@@ -18,7 +19,7 @@ class FeedContainer extends React.Component {
       articles: [],
       disableLoadMore: false,
       articlesLoaded: false,
-      sortedBy: cookie.load('sortedBy'),
+      sort: this.props.sort,
     };
 
     this.addArticles = this.addArticles.bind(this);
@@ -33,9 +34,9 @@ class FeedContainer extends React.Component {
     this.props.fetchFeed('../data/articles.json')
               .then(() => this.setState({ articlesLoaded: true }))
               .then(() => {
-                if (this.state.sortedBy) {
-                  let [column, order] = this.state.sortedBy.split('-');
-                  this.sortColumn(column, order);
+                if (this.state.sort.column) {
+                  this.sortColumn(this.state.sort.column,
+                                  this.state.sort.order);
                 }
               });
   }
@@ -99,16 +100,15 @@ class FeedContainer extends React.Component {
     };
 
     const articles = sortActions[column][order]();
-    const sortedBy = `${column}-${order}`;
+    const sort = `${column}-${order}`;
 
-    cookie.save('sortedBy', sortedBy);
+    cookie.save('sort', sort);
 
-    this.setState({ articles,
-                    sortedBy });
+    this.setState({ articles, sort });
   }
 
   clearSort() {
-    cookie.save('sortedBy', '');
+    cookie.save('sort', '');
     const articles = this.props.articles.slice(0, this.articleCount);
     this.setState({ articles });
   }
@@ -140,11 +140,13 @@ class FeedContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     articles: state.feed,
+    sort: state.sort,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchFeed: (url) => dispatch(fetchFeed(url)),
+  setSort: (sort) => dispatch(setSort(sort)),
 });
 
 export default connect(
