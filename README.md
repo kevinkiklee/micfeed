@@ -3,7 +3,8 @@
 MicFeed is a single page application that populates the page with a JSON feed of articles.  
 
 [Live Link](http:/micfeed.herokuapp.com)
-The application is currently hosted in the free tier of Heroku.  Please allow upto 30 seconds for the dyno to spin up.
+
+*The application is currently hosted in the free tier of Heroku.  Please allow upto 30 seconds for the dyno to spin up.*
 
 ## Features
 
@@ -28,4 +29,4 @@ The following libraries have been utilized:
 
 Extract the included zip file and run `npm install` to install the dependencies.
 
-Enter `npm start` in the terminal to start the development server.  The application can be accessed from  `http://localhost:3000/`.  
+Enter `npm start` in the terminal to start the development server.  The application can be accessed from `http://localhost:3000/`.  
