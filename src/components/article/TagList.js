@@ -1,17 +1,14 @@
 import React from 'react';
 
-import TagItem from './TagItem';
-
-const buildTagList = (tags) => {
-  return tags.map((tag) => (
-    <TagItem key={tag.id} tag={tag}/>
-  ));
-};
-
 const TagList = ({ tags }) => {
+  const tagItems = tags.map((tag) => (
+                     <div key={tag.id} className='TagItem'>
+                       { tag.name }
+                     </div>
+                   ));
   return (
     <div className='TagList'>
-      { buildTagList(tags) }
+      { tagItems }
     </div>
   );
 };
