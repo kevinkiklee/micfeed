@@ -10,8 +10,8 @@ const SortReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case RECEIVE_SORT:
-      return Object.assign({}, state, { column: action.column,
-                                        order: action.order, });
+      return Object.assign({}, state, { column: action.sort.column,
+                                        order: action.sort.order, });
 
     default:
       return state;

@@ -8,9 +8,9 @@ export const receiveSort = (sort) => ({
 });
 
 export const setSort = (sort) => dispatch => {
-  return (sort) => dispatch(receiveSort(sort))
-    .then(() => {
-      const sortString = `${sort.column}-${sort.order}`;
-      cookie.save('sort', sortString);
-    });
+  return () => {
+    dispatch(receiveSort(sort));
+    const sortString = `${sort.column}-${sort.order}`;
+    cookie.save('sort', sortString);
+  };
 };

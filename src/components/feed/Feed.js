@@ -10,8 +10,7 @@ const Feed = (props) => {
   return (
     <div className='FeedWrapper'>
       <table className='Feed'>
-        <FeedHeader sortActions={props.sortActions}
-                    articleCount={props.articleCount}/>
+        <FeedHeader articleCount={props.articleCount}/>
         <ArticleList articles={props.articles}/>
       </table>
       <LoadMoreButton disabled={props.disableLoadMore}

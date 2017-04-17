@@ -30,7 +30,10 @@ class FeedHeaderItemContainer extends React.Component {
 
       clearSortButton =
         <FeedHeaderItem iconClass='fa fa-times-circle'
-                    onClick={() => this.props.setSort()}/>;
+                        action={this.props.setSort(
+                                  { column: '',
+                                    order: '', }
+                                )}/>;
     }
 
     return (
@@ -38,13 +41,11 @@ class FeedHeaderItemContainer extends React.Component {
         <h3>{displayName}
         <span className='sortIcons'>
           <FeedHeaderItem iconClass={sortAsc}
-                      onClick={() => this.props.setSort({ column: column,
-                                                          order: 'asc' })}
-                      disabled={ascDisabled}/>
-                    <FeedHeaderItem iconClass={sortDsc}
-                      onClick={() => this.props.setSort({ column: column,
-                                                          order: 'dsc' })}
-                      disabled={dscDisabled}/>
+                          action={this.props.setSort({ column, order: 'asc' })}
+                          disabled={ascDisabled}/>
+          <FeedHeaderItem iconClass={sortDsc}
+                          action={this.props.setSort({ column, order: 'dsc' })}
+                          disabled={dscDisabled}/>
           { clearSortButton }
         </span>
         </h3>

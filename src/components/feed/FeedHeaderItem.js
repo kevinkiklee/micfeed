@@ -1,8 +1,12 @@
 import React from 'react';
 
-const FeedHeaderItem = ({ iconClass, disabled, onClick }) => {
+const FeedHeaderItem = ({ iconClass, disabled, action }) => {
   const icon = <i className={iconClass}
                   aria-hidden='true'/>;
+
+  const sort = (e) => {
+    action();
+  };
 
   if (disabled) {
     return (
@@ -13,7 +17,7 @@ const FeedHeaderItem = ({ iconClass, disabled, onClick }) => {
   } else {
     return (
       <button className='sortIconButton'
-              onClick={onClick}>
+              onClick={sort}>
         { icon }
       </button>
     );
