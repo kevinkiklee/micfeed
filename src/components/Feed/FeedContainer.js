@@ -85,6 +85,9 @@ class FeedContainer extends React.Component {
     this.setState({ articles, sort });
   }
 
+  // When there is no specificed sort column and order, reset the current
+  // article state to the articles in the store.
+
   clearSort() {
     const articles = this.props.articles.slice(0, this.articleCount);
     this.setState({ articles });

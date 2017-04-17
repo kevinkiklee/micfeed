@@ -19,6 +19,10 @@ class FeedHeaderItemContainer extends React.Component {
     let ascAction = this.props.setSort({ column, order: 'asc' });
     let dscAction = this.props.setSort({ column, order: 'dsc' });
 
+    // If the column name is the current sort column, highlight the
+    // corresponding order icon, and set the action of that icon to clear
+    // the sort order.
+
     if (this.props.column === this.props.sort.column) {
       if (this.props.sort.order === 'asc') {
         sortAsc += ' iconSelected';
