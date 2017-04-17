@@ -1,50 +1,69 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import cookie from 'react-cookie';
+
+import { setSort } from '../../actions/sortActions';
 
 import SortButton from './SortButton';
 
-const FeedHeaderItem = ({ name, actions }) => {
-  const displayName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
+class FeedHeaderItem extends React.Component {
+  render () {
+    const column = this.props.column;
+    const displayName = column.charAt(0).toUpperCase()
+                      + column.slice(1, column.length);
 
-  let clearSortButton = '';
+    let clearSortButton = '';
 
-  let ascDisabled = false;
-  let dscDisabled = false;
+    let ascDisabled = false;
+    let dscDisabled = false;
 
-  let sortAsc = 'fa fa-arrow-circle-up';
-  let sortDsc = 'fa fa-arrow-circle-down';
+    let sortAsc = 'fa fa-arrow-circle-up';
+    let sortDsc = 'fa fa-arrow-circle-down';
 
-  const [cookieName, cookieOrder] = cookie.load('sort').split('-');
+    if (this.props.column === this.props.sort.column) {
+      if (this.props.sort.order === 'asc') {
+        sortAsc += ' iconSelected';
+        ascDisabled = true;
+      } else {
+        sortDsc += ' iconSelected';
+        dscDisabled = true;
+      }
 
-  if (name === cookieName) {
-    if (cookieOrder === 'asc') {
-      sortAsc += ' iconSelected';
-      ascDisabled = true;
-    } else {
-      sortDsc += ' iconSelected';
-      dscDisabled = true;
+      clearSortButton =
+        <SortButton iconClass='fa fa-times-circle'
+                    onClick={() => this.props.setSort()}/>;
     }
 
-    clearSortButton =
-      <SortButton iconClass='fa fa-times-circle'
-                  onClick={() => actions.clearSort()}/>;
+    return (
+      <th className={column}>
+        <h3>{displayName}
+        <span className='sortIcons'>
+          <SortButton iconClass={sortAsc}
+                      onClick={() => this.props.setSort({ column: column,
+                                                          order: 'asc' })}
+                      disabled={ascDisabled}/>
+          <SortButton iconClass={sortDsc}
+                      onClick={() => this.props.setSort({ column: column,
+                                                          order: 'dsc' })}
+                      disabled={dscDisabled}/>
+          { clearSortButton }
+        </span>
+        </h3>
+      </th>
+    );
   }
+}
 
-  return (
-    <th className={name}>
-      <h3>{displayName}
-      <span className='sortIcons'>
-        <SortButton iconClass={sortAsc}
-                    onClick={() => actions.sortColumn(name, 'asc')}
-                    disabled={ascDisabled}/>
-        <SortButton iconClass={sortDsc}
-                    onClick={() => actions.sortColumn(name, 'dsc')}
-                    disabled={dscDisabled}/>
-        { clearSortButton }
-      </span>
-      </h3>
-    </th>
-  );
-};
+const mapStateToProps = (state, ownProps) => ({
+  sort: state.sort,
+  column: ownProps.column,
+});
 
-export default FeedHeaderItem;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  setSort: (sort) => dispatch(setSort(sort)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FeedHeaderItem);

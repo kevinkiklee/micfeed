@@ -2,16 +2,16 @@ import React from 'react';
 
 import FeedHeaderItem from './FeedHeaderItem';
 
-const FeedHeader = ({ sortActions, articleCount }) => {
+const FeedHeader = ({ articleCount }) => {
   return (
     <thead className='FeedHeader'>
       <tr>
         <th className='summary'>
           <h3>Unpublished Articles <span>({ articleCount })</span></h3>
         </th>
-        <FeedHeaderItem name='author' actions={sortActions}/>
-        <FeedHeaderItem name='words' actions={sortActions}/>
-        <FeedHeaderItem name='submitted' actions={sortActions}/>
+        <FeedHeaderItem column='author'/>
+        <FeedHeaderItem column='words'/>
+        <FeedHeaderItem column='submitted'/>
       </tr>
     </thead>
   );
