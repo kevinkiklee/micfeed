@@ -19,7 +19,6 @@ class FeedContainer extends React.Component {
       articles: [],
       disableLoadMore: false,
       articlesLoaded: false,
-      sort: this.props.sort,
     };
 
     this.addArticles = this.addArticles.bind(this);
@@ -34,16 +33,24 @@ class FeedContainer extends React.Component {
     this.props.fetchFeed('../data/articles.json')
               .then(() => this.setState({ articlesLoaded: true }))
               .then(() => {
-                if (this.state.sort.column) {
-                  this.sortColumn(this.state.sort.column,
-                                  this.state.sort.order);
+                if (this.props.column) {
+                  this.sortColumn(this.props.column,
+                                  this.props.order);
                 }
               });
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props !== newProps) {
+    if (this.props.articles !== newProps.articles) {
       this.addArticles(newProps.articles);
+    }
+
+    if (this.props.sort !== newProps.sort) {
+      if (newProps.sort.column === '') {
+        this.clearSort();
+      } else {
+        this.sortColumn(newProps.sort.column, newProps.sort.order);
+      }
     }
   }
 
@@ -108,7 +115,6 @@ class FeedContainer extends React.Component {
   }
 
   clearSort() {
-    cookie.save('sort', '');
     const articles = this.props.articles.slice(0, this.articleCount);
     this.setState({ articles });
   }
