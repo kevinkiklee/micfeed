@@ -3,7 +3,7 @@ import '../styles/App.css';
 
 import Header from './page/Header';
 import Footer from './page/Footer';
-import FeedContainer from './feed/FeedContainer';
+import FeedContainer from './Feed/FeedContainer';
 
 class App extends Component {
   render() {

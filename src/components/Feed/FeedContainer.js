@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import sortBy from 'lodash/sortBy';
-
-import SortUtil from '../../util/SortUtil';
 
 import Feed from './Feed';
+
+import SortUtil from '../../util/SortUtil';
 import { fetchFeed } from '../../actions/feedActions';
 
 class FeedContainer extends React.Component {
@@ -76,8 +75,8 @@ class FeedContainer extends React.Component {
   }
 
   sortColumn(column, order) {
-    const copiedArticles = [...this.state.articles];
-    const sortActions = SortUtil(copiedArticles);
+    const sortActions = SortUtil([...this.state.articles]);
+
     const articles = sortActions[column][order]();
     const sort = `${column}-${order}`;
 

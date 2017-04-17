@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ArticleList from '../article/ArticleList';
+import ArticleList from '../ArticleList/ArticleList';
 import FeedHeader from './FeedHeader';
 import LoadMoreButton from './LoadMoreButton';
 
