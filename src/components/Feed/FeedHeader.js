@@ -1,6 +1,7 @@
 import React from 'react';
 
 import FeedHeaderItemContainer from './FeedHeaderItemContainer';
+import '../../styles/Feed/FeedHeader.css';
 
 const FeedHeader = ({ articleCount }) => {
   return (

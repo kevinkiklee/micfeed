@@ -1,0 +1,35 @@
+.LoadMoreButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 14px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border: 1px solid #00FFBF;
+  border-radius: 5px;
+
+  background-color: #82f7d9;
+  color: black;
+
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.LoadMoreButton:hover {
+  background-color: #00FFBF;
+  border: 1px solid #00d6a0;
+  transition: all 0.3s ease 0s;
+}
+
+.LoadMoreButton:disabled {
+  border: 1px solid rgb(120, 120, 120);
+  background-color: #c7c7c7;
+  cursor: default;
+}
+
+.LoadMoreButton i {
+  font-size: 18px;
+  padding-right: 5px;
+}

@@ -4,8 +4,6 @@ import ArticleList from '../ArticleList/ArticleList';
 import FeedHeader from './FeedHeader';
 import LoadMoreButton from './LoadMoreButton';
 
-import '../../styles/Feed.css';
-
 const Feed = (props) => {
   return (
     <div className='FeedWrapper'>

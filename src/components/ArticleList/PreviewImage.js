@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../styles/ArticleList/PreviewImage.css';
+
 const PreviewImage = ({ image, alt, link }) => {
   return (
     <div className='PreviewImage'>

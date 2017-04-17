@@ -1,0 +1,15 @@
+td {
+  padding: 5px;
+}
+
+.ArticleList tr:nth-child(even) {
+  background-color: #f1f6ff;
+}
+
+.Author,
+.WordCount,
+.SubmitDate {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 13px;
+}

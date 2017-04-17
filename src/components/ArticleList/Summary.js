@@ -4,6 +4,8 @@ import PreviewImage from './PreviewImage';
 import Title from './Title';
 import TagList from './TagList';
 
+import '../../styles/ArticleList/Summary.css';
+
 const Summary = ({ summary }) => {
   return (
     <td className='Summary'>

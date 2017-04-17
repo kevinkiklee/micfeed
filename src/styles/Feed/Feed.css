@@ -1,0 +1,33 @@
+.FeedWrapper {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Feed {
+  width: 90%;
+  margin: 0px 15px 15px 15px;
+  background-color: white;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.Feed td {
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 10px;
+  border: 1px solid rgb(223, 218, 244);
+}
+
+.SpinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 89px);
+}
+
+.SpinnerWrapper h1 {
+  font-size: 20px;
+  color: black;
+}

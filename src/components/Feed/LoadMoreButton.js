@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../styles/Feed/LoadMoreButton.css';
+
 const LoadMoreButton = ({ disabled, onClick }) => {
   let text = 'Load More';
 

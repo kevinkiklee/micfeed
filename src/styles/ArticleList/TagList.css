@@ -1,0 +1,15 @@
+.TagList {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+}
+
+.TagItem {
+  font-size: 10px;
+  font-weight: 600;
+  background-color: #dae2ff;
+  color: black;
+  padding: 3px 8px;
+  margin: 2px;
+  border-radius: 7px;
+}

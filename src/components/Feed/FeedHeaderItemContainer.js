@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setSort } from '../../actions/sortActions';
 
 import FeedHeaderItem from './FeedHeaderItem';
+import '../../styles/Feed/FeedHeaderItem.css';
 
 class FeedHeaderItemContainer extends React.Component {
   render () {

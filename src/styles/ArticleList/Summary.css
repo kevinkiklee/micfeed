@@ -1,0 +1,24 @@
+.Summary {
+  display: flex;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+.SummaryTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.SummaryTextContainer h2 {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 0px;
+  transition: all 0.3s ease 0s;
+}
+
+.SummaryTextContainer h2:hover {
+  color: #027bc1;
+  transition: all 0.3s ease 0s;
+}

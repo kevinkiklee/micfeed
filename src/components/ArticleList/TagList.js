@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../styles/ArticleList/TagList.css';
+
 const TagList = ({ tags }) => {
   const tagItems = tags.map((tag) => (
                      <div key={tag.id} className='TagItem'>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Article from './Article';
-import '../../styles/ArticleList.css';
+import '../../styles/ArticleList/ArticleList.css';
 
 const buildArticleList = (articles) => {
   return articles.map((article) => (

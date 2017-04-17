@@ -1,0 +1,29 @@
+.FeedHeader {
+  flex-direction: row;
+  background-color: #222;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.FeedHeader th {
+  font-weight: bold;
+  padding: 10px 10px;
+  border: 1px solid;
+}
+
+.author {
+  width: 110px;
+}
+
+.words {
+  width: 100px;
+}
+
+.submitted {
+  width: 120px;
+}
+
+.sortIcons {
+  margin-left: 2px;
+}

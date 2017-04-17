@@ -6,6 +6,8 @@ import Feed from './Feed';
 import SortUtil from '../../util/SortUtil';
 import { fetchFeed } from '../../actions/feedActions';
 
+import '../../styles/Feed/Feed.css';
+
 class FeedContainer extends React.Component {
   constructor(props) {
     super(props);
