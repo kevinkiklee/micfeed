@@ -1,5 +1,7 @@
 # MicFeed
 
+![Main View](/docs/screenshots/main.gif)
+
 MicFeed is a single page application that populates the page with a JSON feed of articles.  
 
 [Live Link](http:/micfeed.herokuapp.com)
