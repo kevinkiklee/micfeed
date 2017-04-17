@@ -30,10 +30,8 @@ class FeedHeaderItemContainer extends React.Component {
 
       clearSortButton =
         <FeedHeaderItem iconClass='fa fa-times-circle'
-                        action={this.props.setSort(
-                                  { column: '',
-                                    order: '', }
-                                )}/>;
+                        action={this.props.setSort({ column: '',
+                                                     order: '', })}/>;
     }
 
     return (
