@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import cookie from 'react-cookie';
 import sortBy from 'lodash/sortBy';
 
-import { fetchFeed } from '../../actions/feedActions';
-import { setSort } from '../../actions/sortActions';
-
 import Feed from './Feed';
+import { fetchFeed } from '../../actions/feedActions';
 
 class FeedContainer extends React.Component {
   constructor(props) {
@@ -31,13 +27,7 @@ class FeedContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchFeed('../data/articles.json')
-              .then(() => this.setState({ articlesLoaded: true }))
-              .then(() => {
-                if (this.props.column) {
-                  this.sortColumn(this.props.column,
-                                  this.props.order);
-                }
-              });
+              .then(() => this.setState({ articlesLoaded: true }));
   }
 
   componentWillReceiveProps(newProps) {
@@ -59,9 +49,8 @@ class FeedContainer extends React.Component {
   }
 
   increaseArticleCount(e) {
-    if (this.articleCount === 30) {
+    if (this.articleCount === 30)
       this.fetchMoreArticles();
-    }
 
     this.articleCount += 10;
     this.addArticles(this.props.articles);
@@ -109,8 +98,6 @@ class FeedContainer extends React.Component {
     const articles = sortActions[column][order]();
     const sort = `${column}-${order}`;
 
-    cookie.save('sort', sort);
-
     this.setState({ articles, sort });
   }
 
@@ -120,16 +107,10 @@ class FeedContainer extends React.Component {
   }
 
   render() {
-    const sortActions = {
-      sortColumn: this.sortColumn,
-      clearSort: this.clearSort,
-    };
-
     if (this.state.articlesLoaded) {
       return (
         <Feed articles={this.state.articles}
               articleCount={this.state.articles.length}
-              sortActions={sortActions}
               disableLoadMore={this.state.disableLoadMore}
               onLoadMoreClick={this.increaseArticleCount}/>
       );
@@ -143,16 +124,13 @@ class FeedContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    articles: state.feed,
-    sort: state.sort,
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  articles: state.feed,
+  sort: state.sort,
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchFeed: (url) => dispatch(fetchFeed(url)),
-  setSort: (sort) => dispatch(setSort(sort)),
 });
 
 export default connect(

@@ -4,10 +4,6 @@ const FeedHeaderItem = ({ iconClass, disabled, action }) => {
   const icon = <i className={iconClass}
                   aria-hidden='true'/>;
 
-  const sort = (e) => {
-    action();
-  };
-
   if (disabled) {
     return (
       <span className='sortIconButton'>
@@ -17,7 +13,7 @@ const FeedHeaderItem = ({ iconClass, disabled, action }) => {
   } else {
     return (
       <button className='sortIconButton'
-              onClick={sort}>
+              onClick={() => action()}>
         { icon }
       </button>
     );
