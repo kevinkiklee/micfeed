@@ -1,6 +1,14 @@
+// export const byAuthorAsc = (a, b) => {
+//   const aName = `${a.profile.first_name} ${a.profile.last_name}`;
+//   const bName = `${b.profile.first_name} ${b.profile.last_name}`;
+//
+//   if(aName < bName) return -1;
+//   if(aName > bName) return 1;
+//   return 0;
+// };
 import sortBy from 'lodash/sortBy';
 
-const SortUtil = (articles) => ({
+const sortActions = (articles) => ({
   author: {
     asc: () => sortBy(articles, (o) => (
       `${o.profile.first_name} ${o.profile.last_name}`
@@ -19,4 +27,4 @@ const SortUtil = (articles) => ({
   }
 });
 
-export default SortUtil;
+export default sortActions;
