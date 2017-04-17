@@ -1,5 +1,10 @@
 import sortBy from 'lodash/sortBy';
 
+// The sorting logic has been stored as an object format.  When invoked, it
+// returns an object to easily access the corresponding sorting function.
+
+// lodash/sortBy library has been utilized.
+
 const sortActions = (articles) => ({
   author: {
     asc: () => sortBy(articles, (o) => (

@@ -7,6 +7,7 @@ export const receiveSort = (sort) => ({
   sort
 });
 
+// After the store is updated, the sort order cookie is updated
 export const setSort = (sort) => dispatch => {
   return () => {
     dispatch(receiveSort(sort));

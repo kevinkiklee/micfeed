@@ -9,15 +9,15 @@ import './styles/index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const sort = cookie.load('sort');
   const preloadedState = { sort: {} };
 
+  // If the cookie exists, set the value as the preloadedState
+  const sortCookie = cookie.load('sort');
+
   if (sort) {
-    const [column, order] = sort.split('-');
+    const [column, order] = sortCookie.split('-');
     preloadedState.sort.column = column;
     preloadedState.sort.order = order;
-  } else {
-    cookie.save('sort', '');
   }
 
   const store = configureStore(preloadedState);
