@@ -9,11 +9,18 @@ import './index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const store = configureStore();
+  const sortedBy = cookie.load('sortedBy');
+  const preloadedState = { sort: {} };
 
-  if (!cookie.load('sortedBy')) {
+  if (sortedBy) {
+    const [column, order] = sortedBy.split('-');
+    preloadedState.sort.column = column;
+    preloadedState.sort.order = order;
+  } else {
     cookie.save('sortedBy', '');
   }
+
+  const store = configureStore(preloadedState);
 
   ReactDOM.render(<Root store={store}/>, root);
 });
