@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // If the cookie exists, set the value as the preloadedState
   const sortCookie = cookie.load('sort');
 
-  if (sort) {
+  if (sortCookie) {
     const [column, order] = sortCookie.split('-');
     preloadedState.sort.column = column;
     preloadedState.sort.order = order;
