@@ -6,7 +6,5 @@ export const receiveSearchString = (string) => ({
 });
 
 export const setSearchString = (string) => dispatch => {
-  return () => {
-    dispatch(receiveSearchString(string));
-  };
+  return dispatch(receiveSearchString(string));
 };
