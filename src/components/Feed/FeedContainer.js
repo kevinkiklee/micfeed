@@ -67,6 +67,10 @@ class FeedContainer extends React.Component {
     this.addArticles(this.props.articles);
   }
 
+  buildArticles(articles) {
+    return this.props.articles.slice(0, this.articleCount);
+  }
+
   addArticles(articles) {
     const copiedArticles = [...this.state.articles];
     const moreArticles = articles.slice(this.articleCount - 10,
@@ -97,7 +101,7 @@ class FeedContainer extends React.Component {
   // article state to the articles in the store.
 
   clearSort() {
-    const articles = this.props.articles.slice(0, this.articleCount);
+    const articles = this.buildArticles();
     this.setState({ articles });
   }
 
