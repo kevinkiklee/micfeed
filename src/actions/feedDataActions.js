@@ -7,8 +7,7 @@ export const receiveFeedData = (data) => ({
   data
 });
 
-export const fetchFeedData = (path) => dispatch => {
-  return fetchUtil.fetchJSON(path).then(
-    (data) => dispatch(receiveFeedData(data))
-  );
-};
+export const fetchFeedData = (path) => dispatch => (
+  fetchUtil.fetchJSON(path).then(
+    (data) => dispatch(receiveFeedData(data)))
+);

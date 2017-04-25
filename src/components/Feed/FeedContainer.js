@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Feed from './Feed';
+import Spinner from './Spinner';
 
 import sorts from '../../util/sortUtil';
 import { fetchFeedData } from '../../actions/feedDataActions';
@@ -104,15 +105,14 @@ class FeedContainer extends React.Component {
     if (this.state.articlesLoaded) {
       return (
         <Feed articles={this.state.articles}
-              articleCount={this.state.articles.length}
+              articleCount={this.props.feedTotal}
               disableLoadMore={this.state.disableLoadMore}
               onLoadMoreClick={this.increaseArticleCount}/>
       );
     } else {
+      debugger
       return (
-        <div className='SpinnerWrapper'>
-          <h1>Loading...</h1>
-        </div>
+        <Spinner className='Spinner'/>
       );
     }
   }
