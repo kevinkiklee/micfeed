@@ -8,5 +8,10 @@
     "id": 1,
     "path": "../data/more-articles.json",
     "count": 30
+  },
+  {
+    "id": 2,
+    "path": "../data/more-more-articles.json",
+    "count": 30
   }
 ]

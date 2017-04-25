@@ -59,9 +59,7 @@ class FeedContainer extends React.Component {
   }
 
   increaseArticleCount(e) {
-    const feedDataCount = this.props.feedData[this.feedCount - 1].count;
-
-    if (this.articleCount === feedDataCount)
+    if (this.articleCount === this.props.articles.length)
       this.fetchArticles();
 
     this.articleCount += 10;
