@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Feed from './Feed';
 
 import sorts from '../../util/sortUtil';
-import { fetchFeed } from '../../actions/feedActions';
+import { fetchJSON } from '../../actions/feedActions';
 
 import '../../styles/Feed/Feed.css';
 
@@ -29,7 +29,7 @@ class FeedContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchFeed('../data/articles.json')
+    this.props.fetchJSON('../data/articles.json')
               .then(() => this.setState({ articlesLoaded: true }));
   }
 
@@ -48,7 +48,7 @@ class FeedContainer extends React.Component {
   }
 
   fetchMoreArticles() {
-    this.props.fetchFeed('../data/more-articles.json');
+    this.props.fetchJSON('../data/more-articles.json');
   }
 
   increaseArticleCount(e) {
@@ -117,7 +117,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchFeed: (url) => dispatch(fetchFeed(url)),
+  fetchJSON: (url) => dispatch(fetchJSON(url)),
 });
 
 export default connect(

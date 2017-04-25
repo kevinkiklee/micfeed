@@ -1,4 +1,4 @@
-import * as FeedUtil from '../util/feedUtil';
+import * as fetchUtil from '../util/fetchUtil';
 
 export const RECEIVE_FEED = 'RECEIVE_FEED';
 
@@ -7,8 +7,8 @@ export const receiveFeed = (feed) => ({
   feed
 });
 
-export const fetchFeed = (url) => dispatch => {
-  return FeedUtil.fetchFeed(url).then(
+export const fetchJSON = (url) => dispatch => {
+  return fetchUtil.fetchJSON(url).then(
     (feed) => dispatch(receiveFeed(feed))
   );
 };

@@ -1,3 +1,3 @@
-export const fetchFeed = (url) => {
+export const fetchJSON = (url) => {
   return fetch(url).then((res) => res.json());
 };
