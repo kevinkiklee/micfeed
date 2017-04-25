@@ -36,7 +36,7 @@ Enter `npm start` in the terminal to start the development server.  The applicat
 
 ## Notes
 
-#### Article Loading
+#### Article Load
 *Implemented after the initial submission*
 
 In my initial submission, the feed filenames and the article count in those feeds were hardcoded.  Also, it was not possible to know total number of articles without loading all the data files first.  In real-life situation, this would not be feasible since it will not exactly have two files that have 30 articles each.  

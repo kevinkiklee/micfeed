@@ -36,10 +36,10 @@ class FeedHeaderItemContainer extends React.Component {
     return (
       <th className={column}>
         <h3>{displayName}
-        <span className='sortIcons'>
-          <FeedHeaderItem iconClass={sortAsc} action={ascAction}/>
-          <FeedHeaderItem iconClass={sortDsc} action={dscAction}/>
-        </span>
+          <span className='sortIcons'>
+            <FeedHeaderItem iconClass={sortAsc} action={ascAction}/>
+            <FeedHeaderItem iconClass={sortDsc} action={dscAction}/>
+          </span>
         </h3>
       </th>
     );

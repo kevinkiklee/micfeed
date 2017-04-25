@@ -35,8 +35,8 @@ class FeedContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchFeedData('../data/feed-data.json')
-    .then(() => this.fetchArticles())
-    .then(() => this.setState({ articlesLoaded: true }));
+      .then(() => this.fetchArticles())
+      .then(() => this.setState({ articlesLoaded: true }));
   }
 
   componentWillReceiveProps(newProps) {
