@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Feed from './Feed';
 
 import sorts from '../../util/sortUtil';
-import { fetchJSON } from '../../actions/feedActions';
+import { fetchFeedData } from '../../actions/feedDataActions';
+import { fetchFeed } from '../../actions/feedActions';
 
 import '../../styles/Feed/Feed.css';
 
@@ -29,8 +30,9 @@ class FeedContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchJSON('../data/articles.json')
-              .then(() => this.setState({ articlesLoaded: true }));
+    this.props.fetchFeedData('../data/feed-data.json')
+    .then(() => this.props.fetchFeed('../data/articles.json'))
+    .then(() => this.setState({ articlesLoaded: true }));
   }
 
   componentWillReceiveProps(newProps) {
@@ -117,7 +119,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchJSON: (url) => dispatch(fetchJSON(url)),
+  fetchFeedData: (url) => dispatch(fetchFeedData(url)),
+  fetchFeed: (url) => dispatch(fetchFeed(url)),
 });
 
 export default connect(

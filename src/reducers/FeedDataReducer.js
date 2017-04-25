@@ -2,7 +2,7 @@ import { RECEIVE_FEED_DATA } from '../actions/feedDataActions.js';
 
 const initialState = {};
 
-const SortReducer = (state = {initialState}, action) => {
+const FeedDataReducer = (state = initialState, action) => {
   Object.freeze();
 
   switch (action.type) {
@@ -14,4 +14,4 @@ const SortReducer = (state = {initialState}, action) => {
   }
 };
 
-export default SortReducer;
+export default FeedDataReducer;

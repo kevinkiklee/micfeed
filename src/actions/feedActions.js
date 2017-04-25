@@ -7,7 +7,7 @@ export const receiveFeed = (feed) => ({
   feed
 });
 
-export const fetchJSON = (url) => dispatch => {
+export const fetchFeed = (url) => dispatch => {
   return fetchUtil.fetchJSON(url).then(
     (feed) => dispatch(receiveFeed(feed))
   );
