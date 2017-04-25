@@ -1,12 +1,12 @@
 [
   {
     "id": 0,
-    "filename": "articles.json",
+    "path": "../data/articles.json",
     "count": 30
   },
   {
     "id": 1,
-    "filename": "more-articles.json",
+    "path": "../data/more-articles.json",
     "count": 30
   }
 ]

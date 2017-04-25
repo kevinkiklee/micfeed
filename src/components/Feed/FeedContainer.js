@@ -6,7 +6,8 @@ import Feed from './Feed';
 import sorts from '../../util/sortUtil';
 import { fetchFeedData } from '../../actions/feedDataActions';
 import { fetchFeed } from '../../actions/feedActions';
-import { getFeedData } from '../../util/selectors';
+import { getFeedData,
+         getFeedTotal } from '../../util/selectors';
 
 import '../../styles/Feed/Feed.css';
 
@@ -15,7 +16,7 @@ class FeedContainer extends React.Component {
     super(props);
 
     this.articleCount = 10;
-    this.feedCount = 1;
+    this.feedCount = 0;
 
     this.state = {
       articles: [],
@@ -25,7 +26,7 @@ class FeedContainer extends React.Component {
 
     this.addArticles = this.addArticles.bind(this);
     this.increaseArticleCount = this.increaseArticleCount.bind(this);
-    this.fetchMoreArticles = this.fetchMoreArticles.bind(this);
+    this.fetchArticles = this.fetchArticles.bind(this);
 
     this.sortColumn = this.sortColumn.bind(this);
     this.clearSort = this.clearSort.bind(this);
@@ -33,7 +34,7 @@ class FeedContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchFeedData('../data/feed-data.json')
-    .then(() => this.props.fetchFeed('../data/articles.json'))
+    .then(() => this.fetchArticles())
     .then(() => this.setState({ articlesLoaded: true }));
   }
 
@@ -51,13 +52,17 @@ class FeedContainer extends React.Component {
     }
   }
 
-  fetchMoreArticles() {
-    this.props.fetchJSON('../data/more-articles.json');
+  fetchArticles() {
+    const path = this.props.feedData[this.feedCount].path;
+    this.props.fetchFeed(path)
+      .then(() => (this.feedCount += 1));
   }
 
   increaseArticleCount(e) {
-    if (this.articleCount === 30)
-      this.fetchMoreArticles();
+    const feedDataCount = this.props.feedData[this.feedCount - 1].count;
+
+    if (this.articleCount === feedDataCount)
+      this.fetchArticles();
 
     this.articleCount += 10;
     this.addArticles(this.props.articles);
@@ -70,7 +75,7 @@ class FeedContainer extends React.Component {
 
     let disableLoadMore = false;
 
-    if (this.articleCount >= 60) {
+    if (this.articleCount >= this.props.feedTotal) {
       disableLoadMore = true;
     }
 
@@ -119,6 +124,7 @@ const mapStateToProps = (state, ownProps) => ({
   articles: state.feed,
   sort: state.sort,
   feedData: getFeedData(state),
+  feedTotal: getFeedTotal(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
