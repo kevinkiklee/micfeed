@@ -33,6 +33,10 @@ class FeedContainer extends React.Component {
     this.clearSort = this.clearSort.bind(this);
   }
 
+  ///////////////////////////////////
+  // LIFECYCLE METHODS
+  ///////////////////////////////////
+
   componentDidMount() {
     this.props.fetchFeedData('../data/feed-data.json')
       .then(() => this.fetchArticles())
@@ -51,7 +55,15 @@ class FeedContainer extends React.Component {
         this.sortColumn(newProps.sort.column, newProps.sort.order);
       }
     }
+
+    if (this.props.searchString !== newProps.searchString) {
+      this.filterArticles(newProps.searchString);
+    }
   }
+
+  ///////////////////////////////////
+  // ARTICLES
+  ///////////////////////////////////
 
   fetchArticles() {
     const path = this.props.feedData[this.feedCount].path;
@@ -65,10 +77,6 @@ class FeedContainer extends React.Component {
 
     this.articleCount += 10;
     this.addArticles(this.props.articles);
-  }
-
-  buildArticles(articles) {
-    return this.props.articles.slice(0, this.articleCount);
   }
 
   addArticles(articles) {
@@ -88,22 +96,42 @@ class FeedContainer extends React.Component {
     });
   }
 
+  resetArticles(articles) {
+    return this.props.articles.slice(0, this.articleCount);
+  }
+
+  ///////////////////////////////////
+  // SORT
+  ///////////////////////////////////
+
   sortColumn(column, order) {
     const sortActions = sorts([...this.state.articles]);
-
     const articles = sortActions[column][order]();
     const sort = `${column}-${order}`;
 
     this.setState({ articles, sort });
   }
 
-  // When there is no specificed sort column and order, reset the current
-  // article state to the articles in the store.
-
   clearSort() {
-    const articles = this.buildArticles();
+    const articles = this.resetArticles();
     this.setState({ articles });
   }
+
+  ///////////////////////////////////
+  // SEARCH
+  ///////////////////////////////////
+
+  filterArticles(searchString) {
+    const filteredArticles = this.resetArticles().filter((article) => {
+      return article.title.toLowerCase().includes(searchString);
+    });
+
+    this.setState({ articles: filteredArticles});
+  }
+
+  ///////////////////////////////////
+  // RENDER
+  ///////////////////////////////////
 
   render() {
     if (this.state.articlesLoaded) {
@@ -124,6 +152,7 @@ class FeedContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   articles: state.feed,
   sort: state.sort,
+  searchString: state.search.string,
   feedData: getFeedData(state),
   feedTotal: getFeedTotal(state),
 });
