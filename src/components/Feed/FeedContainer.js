@@ -6,6 +6,7 @@ import Feed from './Feed';
 import sorts from '../../util/sortUtil';
 import { fetchFeedData } from '../../actions/feedDataActions';
 import { fetchFeed } from '../../actions/feedActions';
+import { getFeedData } from '../../util/selectors';
 
 import '../../styles/Feed/Feed.css';
 
@@ -117,7 +118,7 @@ class FeedContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   articles: state.feed,
   sort: state.sort,
-  feedData: state.feedData,
+  feedData: getFeedData(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
