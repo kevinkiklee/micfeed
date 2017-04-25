@@ -14,6 +14,7 @@ class FeedContainer extends React.Component {
     super(props);
 
     this.articleCount = 10;
+    this.feedCount = 1;
 
     this.state = {
       articles: [],
@@ -116,6 +117,7 @@ class FeedContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   articles: state.feed,
   sort: state.sort,
+  feedData: state.feedData,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
