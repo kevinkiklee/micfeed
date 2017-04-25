@@ -35,10 +35,3 @@
   font-size: 14px;
   margin: 10px;
 }
-
-.FeedContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
