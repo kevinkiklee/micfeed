@@ -110,7 +110,6 @@ class FeedContainer extends React.Component {
               onLoadMoreClick={this.increaseArticleCount}/>
       );
     } else {
-      debugger
       return (
         <Spinner className='Spinner'/>
       );
