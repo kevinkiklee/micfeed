@@ -29,6 +29,7 @@ class FeedContainer extends React.Component {
     this.increaseArticleCount = this.increaseArticleCount.bind(this);
     this.fetchArticles = this.fetchArticles.bind(this);
 
+    this.sortSpecified = this.sortSpecified.bind(this);
     this.sortColumn = this.sortColumn.bind(this);
     this.clearSort = this.clearSort.bind(this);
   }
@@ -115,6 +116,10 @@ class FeedContainer extends React.Component {
                     sort });
   }
 
+  sortSpecified() {
+    return this.props.sort.column;
+  }
+
   clearSort() {
     const articles = this.resetArticles();
     this.setState({ articles });
@@ -129,10 +134,13 @@ class FeedContainer extends React.Component {
       return article.title.toLowerCase().includes(searchString);
     });
 
-    this.sortColumn(filteredArticles,
-                    this.props.sort.column,
-                    this.props.sort.order);
-    // this.setState({ articles: filteredArticles});
+    if (this.sortSpecified()) {
+      this.sortColumn(filteredArticles,
+                      this.props.sort.column,
+                      this.props.sort.order);
+    } else {
+      this.setState({ articles: filteredArticles });
+    }
   }
 
   ///////////////////////////////////
@@ -140,8 +148,6 @@ class FeedContainer extends React.Component {
   ///////////////////////////////////
 
   render() {
-    // const articles = this.buildArticles();
-
     if (this.state.articlesLoaded) {
       return (
         <Feed articles={this.state.articles}
