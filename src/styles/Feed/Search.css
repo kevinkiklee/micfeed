@@ -15,6 +15,7 @@
   border: 1px solid #cfcfcf;
   width: 300px;
   margin-right: 5px;
+  padding-left: 10px;
 }
 
 .Search .button:focus {
