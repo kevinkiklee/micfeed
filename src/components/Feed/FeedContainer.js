@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Feed from './Feed';
 import Spinner from './Spinner';
 
-import sorts from '../../util/sortUtil';
+import SortUtil from '../../util/sortUtil';
 import { fetchFeedData } from '../../actions/feedDataActions';
 import { fetchFeed } from '../../actions/feedActions';
 import { getFeedData,
@@ -105,7 +105,7 @@ class FeedContainer extends React.Component {
   ///////////////////////////////////
 
   sortColumn(column, order) {
-    const sortActions = sorts([...this.state.articles]);
+    const sortActions = SortUtil([...this.state.articles]);
     const articles = sortActions[column][order]();
     const sort = `${column}-${order}`;
 
