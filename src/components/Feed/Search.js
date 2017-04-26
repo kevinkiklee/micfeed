@@ -31,7 +31,7 @@ class Search extends React.Component {
       <div className='Search'>
         <form onSubmit={this.handleSubmit}>
           <input type='text' onChange={this.handleInput} />
-          <input type='submit' className='Button' value="Search" />
+          <input type='submit' className='button' value="Search" />
         </form>
       </div>
     );

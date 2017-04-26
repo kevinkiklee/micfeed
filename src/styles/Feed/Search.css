@@ -2,9 +2,21 @@
   display: flex;
   justify-content: center;
   width: 50%;
+  margin-top: 8px;
 }
 
 .Search > form {
   display: flex;
   padding: 5px;
+}
+
+.Search input[type=text] {
+  border-radius: 5px;
+  border: 1px solid #cfcfcf;
+  width: 300px;
+  margin-right: 5px;
+}
+
+.Search .button:focus {
+  outline: none;
 }

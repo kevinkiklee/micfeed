@@ -10,7 +10,7 @@ const Button = ({ disabled, onClick }) => {
   }
 
   return (
-    <button className='Button'
+    <button className='button'
             disabled={disabled}
             onClick={onClick}>
       <i className="fa fa-plus-circle" aria-hidden="true"/>
