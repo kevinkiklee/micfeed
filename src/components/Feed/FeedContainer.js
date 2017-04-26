@@ -52,7 +52,9 @@ class FeedContainer extends React.Component {
       if (newProps.sort.column === '') {
         this.clearSort();
       } else {
-        this.sortColumn(newProps.sort.column, newProps.sort.order);
+        this.sortColumn(this.state.articles,
+                        newProps.sort.column,
+                        newProps.sort.order);
       }
     }
 
@@ -104,12 +106,13 @@ class FeedContainer extends React.Component {
   // SORT
   ///////////////////////////////////
 
-  sortColumn(column, order) {
-    const sortActions = SortUtil([...this.state.articles]);
-    const articles = sortActions[column][order]();
+  sortColumn(articles, column, order) {
+    const sortActions = SortUtil([...articles]);
+    const sortedArticles = sortActions[column][order]();
     const sort = `${column}-${order}`;
 
-    this.setState({ articles, sort });
+    this.setState({ articles: sortedArticles,
+                    sort });
   }
 
   clearSort() {
@@ -126,7 +129,10 @@ class FeedContainer extends React.Component {
       return article.title.toLowerCase().includes(searchString);
     });
 
-    this.setState({ articles: filteredArticles});
+    this.sortColumn(filteredArticles,
+                    this.props.sort.column,
+                    this.props.sort.order);
+    // this.setState({ articles: filteredArticles});
   }
 
   ///////////////////////////////////
@@ -134,6 +140,8 @@ class FeedContainer extends React.Component {
   ///////////////////////////////////
 
   render() {
+    // const articles = this.buildArticles();
+
     if (this.state.articlesLoaded) {
       return (
         <Feed articles={this.state.articles}
