@@ -47,14 +47,11 @@ class Search extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-});
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setSearchString: (string) => dispatch(setSearchString(string)),
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Search);

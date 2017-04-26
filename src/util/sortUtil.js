@@ -5,7 +5,7 @@ import sortBy from 'lodash/sortBy';
 
 // lodash/sortBy library has been utilized.
 
-const sortActions = (articles) => ({
+const SortUtil = (articles) => ({
   author: {
     asc: () => sortBy(articles, (o) => (
       `${o.profile.first_name} ${o.profile.last_name}`
@@ -14,14 +14,16 @@ const sortActions = (articles) => ({
       `${o.profile.first_name} ${o.profile.last_name}`
     )).reverse(),
   },
+
   words: {
     asc: () => sortBy(articles, (o) => o.words),
     dsc: () => sortBy(articles, (o) => o.words).reverse(),
   },
+
   submitted: {
     asc: () => sortBy(articles, (o) => o.publish_at),
     dsc: () => sortBy(articles, (o) => o.publish_at).reverse(),
   }
 });
 
-export default sortActions;
+export default SortUtil;
