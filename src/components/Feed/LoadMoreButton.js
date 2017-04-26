@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../styles/Feed/LoadMoreButton.css';
+import '../../styles/Feed/Button.css';
 
-const LoadMoreButton = ({ disabled, onClick }) => {
+const Button = ({ disabled, onClick }) => {
   let text = 'Load More';
 
   if (disabled) {
@@ -10,7 +10,7 @@ const LoadMoreButton = ({ disabled, onClick }) => {
   }
 
   return (
-    <button className='LoadMoreButton'
+    <button className='Button'
             disabled={disabled}
             onClick={onClick}>
       <i className="fa fa-plus-circle" aria-hidden="true"/>
@@ -19,4 +19,4 @@ const LoadMoreButton = ({ disabled, onClick }) => {
   );
 };
 
-export default LoadMoreButton;
+export default Button;

@@ -5,7 +5,7 @@ import { setSearchString } from '../../actions/searchActions';
 
 import '../../styles/Feed/Search.css';
 
-class FeedHeaderItemContainer extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +31,7 @@ class FeedHeaderItemContainer extends React.Component {
       <div className='Search'>
         <form onSubmit={this.handleSubmit}>
           <input type='text' onChange={this.handleInput} />
-          <input type='submit' value="Search" />
+          <input type='submit' className='Button' value="Search" />
         </form>
       </div>
     );
@@ -48,4 +48,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FeedHeaderItemContainer);
+)(Search);

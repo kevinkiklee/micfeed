@@ -1,0 +1,10 @@
+.Search {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.Search > form {
+  display: flex;
+  padding: 5px;
+}

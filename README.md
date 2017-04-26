@@ -77,7 +77,7 @@ fetchArticles() {
 }
 ```
 
-Having the metadata of all the feeds enables us to find the total count of all articles, which gives us a way to disable the load button when the last file has been loaded.  The total count of feed articles is calculated with a selector, then the LoadMoreButton is disabled when all articles have been displayed onto the page:
+Having the metadata of all the feeds enables us to find the total count of all articles, which gives us a way to disable the load button when the last file has been loaded.  The total count of feed articles is calculated with a selector, then the Button is disabled when all articles have been displayed onto the page:
 
 ```javascript
 // selector.js

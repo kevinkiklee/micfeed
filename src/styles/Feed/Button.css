@@ -1,4 +1,4 @@
-.LoadMoreButton {
+.Button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,19 +17,19 @@
   transition: all 0.3s ease 0s;
 }
 
-.LoadMoreButton:hover {
+.Button:hover {
   background-color: #00FFBF;
   border: 1px solid #00d6a0;
   transition: all 0.3s ease 0s;
 }
 
-.LoadMoreButton:disabled {
+.Button:disabled {
   border: 1px solid rgb(120, 120, 120);
   background-color: #c7c7c7;
   cursor: default;
 }
 
-.LoadMoreButton i {
+.Button i {
   font-size: 18px;
   padding-right: 5px;
 }
