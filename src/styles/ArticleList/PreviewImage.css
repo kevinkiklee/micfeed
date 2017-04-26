@@ -12,6 +12,7 @@
 .PreviewImage img {
   height: 75px;
   transition: all 0.3s ease 0s;
+  -webkit-backface-visibility: hidden;
 }
 
 .PreviewImage img:hover {
