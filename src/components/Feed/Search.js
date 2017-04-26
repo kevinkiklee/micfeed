@@ -19,6 +19,7 @@ class Search extends React.Component {
   }
 
   handleInput(e) {
+    this.props.setSearchString(e.target.value);
     this.setState({ searchString: e.target.value });
   }
 
@@ -28,6 +29,7 @@ class Search extends React.Component {
   }
 
   handleClick(e) {
+    this.props.setSearchString('');
     this.setState({ searchString: '' });
   }
 
