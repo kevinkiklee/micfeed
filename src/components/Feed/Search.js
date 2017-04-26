@@ -14,6 +14,7 @@ class Search extends React.Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,11 +27,19 @@ class Search extends React.Component {
     this.props.setSearchString(this.state.searchString);
   }
 
+  handleClick(e) {
+    this.setState({ searchString: '' });
+  }
+
   render () {
     return (
       <div className='Search'>
         <form onSubmit={this.handleSubmit}>
-          <input type='text' onChange={this.handleInput} />
+          <input type='text'
+                 placeholder="Search Articles"
+                 value={this.state.searchString}
+                 onClick={this.handleClick}
+                 onChange={this.handleInput} />
           <input type='submit' className='button' value="Search" />
         </form>
       </div>
